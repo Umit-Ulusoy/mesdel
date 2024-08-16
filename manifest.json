@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Discord Msdel",
+  "description":"...",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+    "action": {
+	"default_title":"Discord Msdel Popup",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {}
+  },
+  "background": {
+	"service_worker": "src/background/background.js"
+  }
+}
