@@ -23,3 +23,21 @@ async function getUserData() {
         console.log('Error: ' + err.message);
     }
 }
+
+async function getLastMessageTimestamp(channelId) {
+    const url = `${API_URL}channels/${channelId}/messages?limit=1`;
+
+    try {
+        const response = await axios.get(url, {
+            headers: {
+                "Authorization": `${TOKEN}`
+            }
+        });
+
+        const lastMessage = response.data[0];
+        return lastMessage ? new Date(lastMessage.timestamp).getTime() : 0;
+    } catch (err) {
+        console.log('Error: ' + err.message);
+        return 0;
+    }
+}
