@@ -41,3 +41,8 @@ async function getLastMessageTimestamp(channelId) {
         return 0;
     }
 }
+
+function getUserAvatar(userId, avatarId) {
+    const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${avatarId}.png`
+    return avatarId ? avatarUrl : "";
+}
