@@ -1,17 +1,15 @@
 <script>
 import { ref } from 'vue'
 import { Welcome, Dashboard } from './index'
+import { setOpenBefore, getOpenBefore } from '../../../helpers/misc'
 export default {
     name: 'Home',
     setup(){
-        const openBefore = ref(false)
+        const IsOB = getOpenBefore()
+        const openBefore = ref(IsOB)
 
-        function isOpenBefore(){
-            openBefore.value = !openBefore.value
-        }
         return {
             openBefore,
-            isOpenBefore
         }
     },
     components: {
@@ -22,8 +20,8 @@ export default {
 </script>
 
 <template>
-    <Welcome v-if="openBefore" />
-    <Dashboard v-else />
+    <Dashboard v-if="openBefore" />
+    <Welcome v-else />
 </template>
 
 <style scoped>

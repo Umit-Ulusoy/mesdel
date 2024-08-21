@@ -47,7 +47,7 @@ function getUserAvatar(userId, avatarId) {
     return avatarId ? avatarUrl : "";
 }
 
-async function getUserDms() {
+async function getUserDms(TOKEN) {
 const url = `${API_URL}users/@me/channels`;
 
     try {
@@ -82,4 +82,9 @@ const url = `${API_URL}users/@me/channels`;
     } catch (err) {
         console.error('Error in DM listing: ' + err)
     }
+}
+
+export {
+    getUserData,
+    getUserDms
 }
