@@ -7,7 +7,8 @@
   "permissions": [
     "scripting",
     "activeTab",
-    "storage"
+    "storage",
+            "notifications"
   ],
     "action": {
 	"default_title":"Discord Msdel Popup",
