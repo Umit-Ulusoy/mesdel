@@ -33,7 +33,25 @@ function getUserToken() {
     }
 }
 
+function deleteUserToken() {
+    try {
+        return new Promise((resolve, reject) => {
+            chrome.storage.local.remove(['token'], () => {
+                if (chrome.runtime.lastError) {
+                    reject(new Error('Token silinirken bir hata oluştu: ' + chrome.runtime.lastError.message));
+                } else {
+                    resolve();
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Token silinirken bir hata oluştu:', error);
+        throw error;
+    }
+}
+
 export {
     setUserToken,
-    getUserToken
+    getUserToken,
+    deleteUserToken,
 };
