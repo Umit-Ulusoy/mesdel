@@ -4,7 +4,9 @@ import { getUserDms, getUserData } from '../../../helpers/apiHandler'
 export default {    
     name: 'Dashboard',
     setup(){
-        const dms = getUserDms()
+        const dms = null;
+        // const dms = getUserDms()
+        // const data = getUserData()
         return {
             dms
         }

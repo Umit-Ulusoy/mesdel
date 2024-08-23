@@ -1,6 +1,12 @@
 <script>
 export default {    
     name: 'DmList',
+    props: {
+        Dms: {
+            type: Array,
+            required: true
+        }
+    }
 }
 </script>
 

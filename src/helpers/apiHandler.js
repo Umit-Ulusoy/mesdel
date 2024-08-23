@@ -1,7 +1,6 @@
 const API_URL = 'https://discord.com/api/v9/';
-let TOKEN;
 
-async function getUserData() {
+async function getUserData(TOKEN) {
     const url = `${API_URL}users/@me`;
 
     try {

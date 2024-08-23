@@ -3,16 +3,28 @@
   "name": "Discord Msdel",
   "description":"...",
   "version": "1.0.0",
-  "default_locale": "en",
   "permissions": [
+    "tabs",
     "scripting",
     "activeTab",
     "storage",
-            "notifications"
+    "notifications"
   ],
-    "action": {
+
+  "content_scripts": [
+    {
+      "matches": ["https://discord.com/*"],
+      "js": ["src/content/contentScript.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
 	"default_title":"Discord Msdel Popup",
-    "default_popup": "src/popup/popup.html",
+    "default_popup": "src/views/dist/index.html",
     "default_icon": {}
   },
   "background": {
