@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      token: null
+      token: "de"
     };
   },
   mounted() {
@@ -21,8 +21,9 @@ export default {
 </script>
 
 <template>
-  <router-view></router-view>
+  <router-view :token="token"></router-view>
 </template>
 
-<style scoped>
+<style lang="scss">
+@import url("main.scss");
 </style>
