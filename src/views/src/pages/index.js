@@ -1,7 +1,10 @@
-import Welcome from "./Welcome.vue"
-import Dashboard from "./Dashboard.vue"
+import Welcome from "./Welcome"
+import Dashboard from "./Dashboard"
+import Home from "./Home"
 
 export {
+    Home,
+
     Welcome,
-    Dashboard
+    Dashboard   
 }

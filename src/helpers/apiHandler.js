@@ -1,5 +1,5 @@
 const API_URL = 'https://discord.com/api/v9/';
-
+import axios from "axios";
 async function getUserData(TOKEN) {
     const url = `${API_URL}users/@me`;
 

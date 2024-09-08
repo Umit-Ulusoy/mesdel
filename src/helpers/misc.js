@@ -21,7 +21,7 @@ async function getOpenBefore() {
 function setOpenBefore(openBefore) {
     try {
         return new Promise((resolve, reject) => {
-            chrome.storage.local.set({ openBefore }, () => {
+            chrome.storage.local.set(openBefore, () => {
                 if (chrome.runtime.lastError) {
                     reject(new Error('Open Before kaydedilirken bir hata oluştu: ' + chrome.runtime.lastError.message));
                 } else {
