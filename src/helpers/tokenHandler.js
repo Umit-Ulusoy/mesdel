@@ -19,7 +19,7 @@ function setUserToken(token) {
 function getUserToken() {
     try {
         return new Promise((resolve, reject) => {
-            chrome.storage.local.get(['token'], (result) => {
+            chrome.storage.local.get('token', (result) => {
                 if (chrome.runtime.lastError) {
                     reject(new Error('Token verisi alınırken bir hata oluştu: ' + chrome.runtime.lastError.message));
                 } else {

@@ -1,24 +1,20 @@
 import { useEffect, useState } from 'react'
-
+import { IsLogin } from '../components/index'
 
 function Home(){
     const [token, setToken] = useState('')
     useEffect(()=>{
-    chrome.storage.local.get('token', (result) => {
-        if (result.token) {
-            console.log("res tok",result?.token)
-            setToken(result.token)
-        } else {
-            console.log("Token bulunamadı")
-        }
+        chrome.storage.local.get('token', (result) => {
+            if (result.token) {
+                setToken(result.token)
+            } else {
+                console.log("Token bulunamadı")
+            }
         })
     })
     return(
         <>
-        HOME
-<button onClick={()=>console.log("ONCLİCK, ", token)}>GET TOKEN</button>
-TOKEN: {token}
-
+            <IsLogin  />
         </>
     )
 }
