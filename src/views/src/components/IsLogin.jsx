@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Dashboard, Welcome } from '../pages/index'
-function IsLogin({tokenFound}){
-    const [openBefore, setOpenBefore] = useState(false)
+import { setOpenBefore } from '../store/slices/keepSlice'
+import { useDispatch, useSelector } from "react-redux"
+function IsLogin(){
+    const dispatch = useDispatch()
+    const { openBefore, tokenFound } = useSelector(state=>state.keep)
     useEffect(()=> {
         chrome.storage.local.get('openBefore', (result) => {
             if (result.openBefore) {
-                setOpenBefore(result.openBefore)
+                dispatch(setOpenBefore(true))
                 console.log("openbefore", result.openBefore)
             } else {
-                setOpenBefore(false)
+                dispatch(setOpenBefore(false))
                 console.log("openBefore bulunamadı")
             }
         })
