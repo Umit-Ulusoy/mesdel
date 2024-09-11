@@ -1,9 +1,13 @@
+import { useDispatch } from "react-redux"
+import { setOpenBefore, setTokenFound } from '../store/slices/keepSlice'
+
+
 function Welcome({openBefore, tokenFound}){
     
-    
+    const dispatch = useDispatch()
     if(!openBefore && !tokenFound){
         function handleClick(){
-            
+            dispatch(setOpenBefore(true))
         }
         return(
             <>
@@ -15,7 +19,8 @@ function Welcome({openBefore, tokenFound}){
         )
     } else if(!openBefore && tokenFound){
         function handleClick(){
-
+            dispatch(setOpenBefore(true))
+            dispatch(setTokenFound(true))
         }
         return(
             <>

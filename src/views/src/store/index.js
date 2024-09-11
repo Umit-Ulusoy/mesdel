@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { keepSlice } from './slices/keepSlice'
+import keepSlice from './slices/keepSlice'
 
 export const store = configureStore({
     reducer: {
