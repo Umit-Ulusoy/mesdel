@@ -47,15 +47,15 @@ function getUserAvatar(userId, avatarId) {
 }
 
 async function getUserDms(TOKEN) {
+    console.log("toqen:", TOKEN)
+    const USER_TOKEN = TOKEN
     const url = `${API_URL}users/@me/channels`;
-    console.log("api", 1)
     try {
         const response = await axios.get(url, {
             headers: {
-                "Authorization": `${TOKEN}`
+                "Authorization": `${USER_TOKEN}`
             }
         });
-        console.log("api", 2)
 
         const channels = response.data
             .filter(channel => channel.type === 1)

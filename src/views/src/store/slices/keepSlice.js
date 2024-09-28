@@ -4,34 +4,28 @@ export const keepSlice = createSlice({
     initialState: {
         openBefore: false,
         tokenFound: false,
-        token: ''
+        token: ""
     },
     reducers: {
+        setToken: (state, action) => {
+            console.log('SET TOKEN 2', action.payload)
+            console.log('SET TOKEN', state.token )
+            state.token = action.payload
+        },
         setOpenBefore: (state, action)=>{
-            console.log(1)
             state.openBefore = action.payload
             chrome?.storage.local.set({openBefore: action.payload}, (result) => {
-                if(result){
-                    console.log('başarılı')
-                } else {
-                    console.log('başarılı değil')
-                }
+                
+                console.log("set open before")
             })
         },
         setTokenFound: (state, action)=> {
-            console.log(2)
             state.tokenFound = action.payload
             chrome?.storage.local.set({tokenFound: action.payload}, (result) => {
-                if(result){
-                    console.log('başarılı')
-                } else {
-                    console.log('başarılı değil')
-                }
+                console.log("set token found")
             })
         },
-        setToken: (state, action) => {
-            state.token = action.payload
-        }
+        
     }
 })
 

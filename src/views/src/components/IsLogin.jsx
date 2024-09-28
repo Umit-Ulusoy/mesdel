@@ -2,12 +2,10 @@ import { useEffect } from "react"
 import { Dashboard, Welcome } from '../pages/index'
 import { setOpenBefore, setTokenFound } from '../store/slices/keepSlice'
 import { useDispatch, useSelector } from "react-redux"
-function IsLogin(){
+function IsLogin({token}){
     const dispatch = useDispatch()
-    const x = useSelector(state=> state)
-    console.log("keep", x)
+    console.log("props: ", token)
     const { openBefore, tokenFound } = useSelector((state)=> state.keep)
-    console.log(openBefore, tokenFound)
     useEffect(()=> {
         chrome?.storage.local.get('openBefore', (result) => {
             if (result.openBefore) {
@@ -31,7 +29,7 @@ function IsLogin(){
     })
     return (
         <>
-            {openBefore ? <Dashboard /> : <Welcome openBefore={openBefore} tokenFound={tokenFound} />}
+            {openBefore ? <Dashboard token={token} /> : <Welcome openBefore={openBefore} tokenFound={tokenFound} token={token} />}
         </>
     )
 }
