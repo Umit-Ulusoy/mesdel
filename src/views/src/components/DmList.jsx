@@ -1,53 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { getUserDms } from '../helpers/apiHandler'
 
-function DmList({token}) {
+function DmList() {
     const [dms, setDms] = useState([])
-	const [userToken, setUserToken]  = useState(null)
-    const [loading, setLoading] = useState(true);
+	const [userToken, setUserToken] = useState(localStorage.getItem("token"))
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-
-    useEffect(()=>{
-        if(token){
-            setUserToken(token)
-        }
-        if(userToken){
-            async function fetchDms() {
-                try {
-                    const tokenParser = userToken.replace('"', '')
-                    const dmsData = await getUserDms(tokenParser)
-                    console.log('dms ', dmsData)
-                    setDms(dmsData)
-                    
-                    
-                    
-                    
-                } catch (err) {
-                    setError(err.message)
-                } finally {
-                    setLoading(false)
-                }
-            }
-    
-            fetchDms()
-        }
-        
-    })
-
-    if (loading) return <div>Yükleniyor...</div>
-    if (error) return <div>Error: {error}</div>
-
+	
+	async function fetchDms() {
+		  const tx = userToken.toString()
+          const dmsData = await getUserDms(tx)
+		  
+			 
+			  console.log("DMS DATA AMK", dmsData)
+		  
+    }
+	
+	useEffect(()=>{
+		console.log("effect", userToken)
+		const x = fetchDms()
+		setDms(x)
+		console.log("xXXXX", x)
+	}, [])
+	
     return (
         <>
-		X: {userToken}
-        {dms?.map(dm => (
-            <div key={dm.id}>
-            <p>Username: {dm.user.username}</p>
-            <p>Global Name: {dm.user.globalName}</p>
-            </div>
-        ))}
+			
+			USER TOKEN: {userToken}
+			DMS: {JSON.stringify(dms)}
+			
         </>
     )
 }
 
 export default DmList
+/*
+{dms?.map(dm => (
+            <div key={dm.id}>
+            <p>Username: {dm.user.username}</p>
+            <p>Global Name: {dm.user.globalName}</p>
+            </div>
+        ))}
+*/

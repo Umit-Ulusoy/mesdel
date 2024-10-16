@@ -12,6 +12,7 @@ function Home(){
                 setT(result.token)
                 dispatch(setToken(result.token))
                 dispatch(setTokenFound(true))
+				localStorage.setItem("token", result.token)
                 console.log("result", result.token)
             } else {
                 dispatch(setTokenFound(false))
