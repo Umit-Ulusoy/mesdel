@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getUserDms } from '../helpers/apiHandler'
-
+import { Modal } from './index'
 function DmList({token}) {
     const [dms, setDms] = useState([]);
     const [userToken, setUserToken] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
         if (token) {
@@ -32,7 +34,12 @@ function DmList({token}) {
 
     if (loading) return <div>Yükleniyor...</div>;
     if (error) return <div>Error: {error}</div>;
-
+    const handleOpenModal = () => {
+        setShowModal(true)
+    }
+    const handleCloseModal = () => {
+        setShowModal(false)
+    }
 
         return (
             <>
@@ -43,6 +50,14 @@ function DmList({token}) {
                         <p>Global Name: {dm.user.globalName}</p>
                     </div>
                 ))}
+                <button onClick={handleOpenModal}>XD</button>
+                <Modal 
+                    show={showModal} 
+                    onClose={handleCloseModal} 
+                    children={<>
+                        HEW
+                    </>}
+                />
             </>
         );
         
