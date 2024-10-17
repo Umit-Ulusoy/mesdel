@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getUserDms } from '../helpers/apiHandler'
 
-<<<<<<< HEAD
 function DmList({token}) {
     const [dms, setDms] = useState([]);
     const [userToken, setUserToken] = useState(null);
