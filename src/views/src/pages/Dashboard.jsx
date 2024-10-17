@@ -3,7 +3,7 @@ function Dashboard({token}){
     return (
         <>
             TOKEN: {token}
-            DASHBOARD
+            <h1>DASHBOARD</h1>
             <DmList token={token} />
         </>
     )
