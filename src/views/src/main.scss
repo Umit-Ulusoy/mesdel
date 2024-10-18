@@ -7,9 +7,10 @@ html {
 div {
     &#root {
         padding: 10px;
-        border-radius: 15px;
+        width: max(25rem);
+        height: min(45em);
+        overflow: auto;
         border: 2px solid black;
-        width: 400px;
-        height: 550px;
+        border-radius: 15px;
     }
 }
