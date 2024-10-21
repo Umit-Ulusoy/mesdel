@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { getUserDms } from '../helpers/apiHandler'
 import { Modal } from './index'
 import { DeletionScreen } from '../pages/index'
 
 function DmList({token}) {
-    const [dms, setDms] = useState([]);
-    const [userToken, setUserToken] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [dms, setDms] = useState([])
+    const [userToken, setUserToken] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     const [showModal, setShowModal] = useState(false)
     const [modalData, setModalData] = useState(null)
@@ -33,10 +33,10 @@ function DmList({token}) {
 
             fetchDms();
         }
-    }, [token]);
+    }, [token])
 
-    if (loading) return <div>Yükleniyor...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <div>Yükleniyor...</div>
+    if (error) return <div>Error: {error}</div>
     const handleOpenModal = (data) => {
         setModalData(data)
         setShowModal(true)
@@ -45,24 +45,23 @@ function DmList({token}) {
         setShowModal(false)
     }
 
-        return (
-            <>
-                {dms?.map(dm => (
-                    <div key={dm.id} onClick={()=> handleOpenModal(dm)}>
-                        <img src={dm.user.avatarUrl} alt={`${dm.user.username}'s avatar`} title={`${dm.user.username}'s avatar`} />
-                        <p>Username: {dm.user.username}</p>
-                        <p>Global Name: {dm.user.globalName}</p>
-                    </div>
-                ))}
+    return (
+        <>
+            {dms?.map(dm => (
+                <div key={dm.id} onClick={()=> handleOpenModal(dm)}>
+                    <img src={dm.user.avatarUrl} alt={`${dm.user.username}'s avatar`} title={`${dm.user.username}'s avatar`} />
+                    <p>Username: {dm.user.username}</p>
+                    <p>Global Name: {dm.user.globalName}</p>
+                </div>
+            ))}
 
-                <Modal
-                    show={showModal} 
-                    onClose={handleCloseModal} 
-                    children={<DeletionScreen data={modalData} />}
-                />
-            </>
-        );
-        
+            <Modal
+                show={showModal} 
+                onClose={handleCloseModal} 
+                children={<DeletionScreen data={modalData} />}
+            />
+        </>
+    )    
 }
 
 export default DmList;

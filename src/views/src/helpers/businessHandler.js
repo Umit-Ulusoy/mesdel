@@ -11,10 +11,6 @@ const ACTIONS = {
 
 function deletionProcessListener(){
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.action === ACTIONS.ALERT.SHOW_ALERT) {
-            alert(request.message)
-        }
-
         if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_PROGRESS) {
             document.getElementById("progress").innerText = `İlerleme: ${request.progress}%`
         }

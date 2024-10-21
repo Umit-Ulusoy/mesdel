@@ -1,35 +1,36 @@
-import { useDispatch } from "react-redux"
-import { setOpenBefore, setTokenFound } from '../store/slices/keepSlice'
+import { Dashboard } from "./index"
+import { getUserData } from "../helpers/apiHandler"
+import { useDispatch, useSelector } from "react-redux"
+import { setHasToken, setOpenBefore } from '../store/slices/keepSlice'
 
-
-function Welcome({openBefore, tokenFound}){
-    
+function Welcome({token}){
     const dispatch = useDispatch()
-    if(!openBefore && !tokenFound){
+    const { tokenFound, openBefore, hasToken } = useSelector(state=> state.keep)
+    
+    if (!tokenFound && !openBefore) {
+        return <h1>Lütfen discord sayfasına giriş yaptıktan ya da yeniledikten sonra tekrar deneyiniz.</h1>
+    } else if (tokenFound && !openBefore) {
         function handleClick(){
             dispatch(setOpenBefore(true))
+            dispatch(setHasToken(true))
+            
         }
-        return(
+        async function getUser(){
+            return await getUserData(token)
+        }
+        const user = getUser()
+        return (
             <>
-                <img src="" alt="discord avatar" />
-                <p>Global Name</p>
-                <p>User Name</p>
+                <img src={user.avatar} alt="discord avatar" />
+                <p>Global Name: {user?.globalName}</p>
+                <p>User Name: {user?.username}</p>
                 <button onClick={handleClick}>Devam</button>
             </>
         )
-    } else if(!openBefore && tokenFound){
-        function handleClick(){
-            dispatch(setOpenBefore(true))
-            dispatch(setTokenFound(true))
-        }
-        return(
-            <>
-                <p>Devam etmek için aşağıdaki düğmeye basmanız yeterli.</p>
-                <p>Ve lütfen eklentiyi kullanmadan önce, eklenti açıkken sayfayı yenileyiniz.</p>
-                <button onClick={handleClick}>Devam</button>
-            </>
-        )
-    }
+    } else if (hasToken && openBefore) {
+        return <Dashboard token={token} />
+    } 
 }
+
 
 export default Welcome
