@@ -22,11 +22,11 @@ function Home(){
             }
         })
     })
-    chrome.runtime.connect({ name: 'MAIN_POPUP' })
+    
     return(
         <>
             <IsLogin token={t} />
-            <div id='progress'></div>
+            
         </>
     )
 }
