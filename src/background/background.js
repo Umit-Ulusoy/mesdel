@@ -41,6 +41,7 @@ chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
     }
 
     authorId = await getUserId(TOKEN);
+    
 
     setIconBusy();
     isProcessing = true;
@@ -110,5 +111,41 @@ progress
     } catch (error) {
         setIconIdle();
         console.error('Error:', error.response ? error.response.data : error.message);
+    }
+}
+
+async function getMessageIds(channelId, author_id, messageCount) {
+
+    const beforeQuery = lastMessageId ? `&max_id=${lastMessageId}` : '';
+    
+    try {
+        const response = await fetch(`${API_URL}/channels/${channelId}/messages/search?author_id=${author_id}&limit=${messageCount}${beforeQuery}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': TOKEN,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP hatası: ${response.status}`);
+        }
+
+        let data = await response.json();
+        data = data.messages;        
+        const messageIds = data.map(message => message[0].id);
+        lastMessageId = messageIds[0];
+        
+        if (messageIds.length !== messageCount) {
+await delay(2500);
+return getMessageIds(channelId, authorId, messageCount);
+        }
+
+        return messageIds;
+
+    } catch (error) {
+        setIconIdle();
+        console.error('Mesajları çekerken hata oluştu:', error);
+        return [];
     }
 }

@@ -28,6 +28,7 @@
     "default_icon": {}
   },
   "background": {
-	"service_worker": "src/background/background.js"
+	"service_worker": "src/background/background.js",
+  "type": "module"
   }
 }
