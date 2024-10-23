@@ -6,6 +6,7 @@ import { showNotification } from '../helpers/notificationHandler.js';
 
 let
 authorId,
+delayTime = 2500,
 progress = 0,
 isPopupOpen = false,
 isProcessing = false,
@@ -78,3 +79,36 @@ chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
     }
 });
 
+async function deleteMessages(channelId, authorId, messageCount) {
+
+    try {
+        const messageIds = await getMessageIds(channelId, authorId, messageCount);
+
+        
+        for (const messageId of messageIds) {
+            const response = await fetch(`${API_URL}/channels/${channelId}/messages/${messageId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': TOKEN,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            deletedMessageCount += 1;
+            const progress = ((deletedMessageCount / totalMessageCountToDelete) * 100).toFixed(0);
+
+if (isPopupOpen) {
+    await chrome.runtime.sendMessage({
+        action: "MESSAGE_DELETION_PROGRESS",
+progress
+    });
+}
+                                    
+            await delay(delayTime);
+        }
+        
+    } catch (error) {
+        setIconIdle();
+        console.error('Error:', error.response ? error.response.data : error.message);
+    }
+}
