@@ -6,6 +6,8 @@ if (token) {
         action: 'SEND_TOKEN',
         token: token
     })
+	
+	
 } else {
     console.error('Token bulunamadı veya hemen silindi.');
 }

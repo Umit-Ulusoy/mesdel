@@ -82,10 +82,12 @@ async function getUserDms(TOKEN) {
     }
 }
 
-async function getToken(){
+function getToken(){
     chrome.storage.local.get('token', (result) => {
         if (result.token) {
+			console.log("token alındı", result.token)
             return result.token
+		
         } else {
             console.log("Token bulunamadı")
             return null

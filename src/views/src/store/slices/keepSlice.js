@@ -15,23 +15,14 @@ export const keepSlice = createSlice({
         },
         setOpenBefore: (state, action)=>{
             state.openBefore = action.payload
-            chrome?.storage.local.set({openBefore: action.payload}, (result) => {
-                
-                console.log("set open before")
-            })
         },
         setHasToken: (state, action)=>{
             state.hasToken = action.payload
-            chrome?.storage.local.set({hasToken: action.payload}, (result) => {
-                
-                console.log("HAS TIKEN before")
-            })
+            
         },
         setTokenFound: (state, action)=> {
             state.tokenFound = action.payload
-            chrome?.storage.local.set({tokenFound: action.payload}, (result) => {
-                console.log("set token found")
-            })
+            
         },
         
     }
