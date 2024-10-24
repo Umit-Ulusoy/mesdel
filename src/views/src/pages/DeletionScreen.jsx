@@ -20,7 +20,6 @@ function DeletionScreen({data}) {
   
   return (
     <>
-      <h4>DeletionScreen</h4>
       <img src={user.avatarUrl} alt="Avatar Image" />
       <span>User: {user.globalName} / {user.username}</span>
       <input type="number" name="messageCount" min={1} value={messageCount} onChange={handleChange} />

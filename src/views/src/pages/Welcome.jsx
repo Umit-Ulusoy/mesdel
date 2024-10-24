@@ -26,12 +26,18 @@ function Welcome({token}){
         }
         
         return (
-            <>
-                <img src={user?.avatar} alt="discord avatar" />
-                <p>Global Name: {user?.globalName}</p>
-                <p>User Name: {user?.username}</p>
-                <button onClick={handleClick}>Devam</button>
-            </>
+            <div className="h-full flex flex-col justify-center items-center gap-4">
+                <img src={user?.avatar} alt="discord avatar" className="w-32 rounded-lg" />
+                <p className="flex flex-row gap-1">
+                    <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>Global Name: </span> 
+                    <span className='bg-red-100 rounded p-[0.40rem]'>{user?.globalName}</span>
+                </p>
+                <p className="flex flex-row gap-1">
+                    <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>User Name: </span> 
+                    <span className='bg-red-100 rounded p-[0.40rem]'>{user?.username}</span>
+                </p>
+                <button onClick={handleClick} className="btn btn-outline w-[9rem] h-[2rem]">Devam</button>
+            </div>
         )
     } else if (hasToken && openBefore) {
         return <Dashboard token={token} />

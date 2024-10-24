@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getUserDms } from '../helpers/apiHandler'
 import { Modal } from './index'
 import { DeletionScreen } from '../pages/index'
+import ModalUI from './ModalUI'
 
 function DmList({token}) {
     const [dms, setDms] = useState([])
@@ -48,17 +49,18 @@ function DmList({token}) {
     return (
         <>
             {dms?.map(dm => (
-                <div key={dm.id} onClick={()=> handleOpenModal(dm)}>
+                <div key={dm.id} onClick={()=> handleOpenModal(dm)} className='flex flex-col justify-center items-center'>
                     <img src={dm.user.avatarUrl} alt={`${dm.user.username}'s avatar`} title={`${dm.user.username}'s avatar`} />
                     <p>Username: {dm.user.username}</p>
                     <p>Global Name: {dm.user.globalName}</p>
                 </div>
             ))}
 
-            <Modal
+            <ModalUI
                 show={showModal} 
                 onClose={handleCloseModal} 
                 children={<DeletionScreen data={modalData} />}
+                title="Message Deletion Screen"
             />
         </>
     )    

@@ -1,8 +1,19 @@
+@import 'sass/components/modal';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import 'sass/components/modal';
+
+@layer base {
+    html {
+        @apply font-sans;
+    }
+    div {
+        &#root {
+            @apply border-2 border-stone-300 rounded-sm;
+        }
+    }
+}
 
 html {
     padding: 0;
@@ -15,7 +26,5 @@ div {
         width: max(25rem);
         height: min(45em);
         overflow: auto;
-        border: 2px solid black;
-        border-radius: 15px;
     }
 }
