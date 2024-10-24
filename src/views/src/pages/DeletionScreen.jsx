@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { startMessageDeletion } from '../helpers/businessHandler'
+import { startMessageDeletion, deletionProcessListener } from '../helpers/businessHandler'
 
 function DeletionScreen({data}) {
   const [messageCount, setMessageCount] = useState(0)
@@ -8,6 +8,7 @@ function DeletionScreen({data}) {
   const user = data.user
   function startDeletion(){
     startMessageDeletion(data.id, messageCount)
+    deletionProcessListener()
   }
   function handleChange(e){
     setMessageCount(e.target.value)
@@ -23,9 +24,9 @@ function DeletionScreen({data}) {
       <span>User: {user.globalName} / {user.username}</span>
       <input type="number" name="messageCount" min={1} value={messageCount} onChange={handleChange} />
       
-	  <button onClick={startDeletion}>Sil</button>
+	    <button onClick={startDeletion}>Sil</button>
 	  
-	  <div id="progress">0</div>
+	    <div id="progress">0</div>
     </>
   )
 }

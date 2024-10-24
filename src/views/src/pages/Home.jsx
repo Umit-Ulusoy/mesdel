@@ -12,7 +12,10 @@ function Home(){
     useEffect(()=>{
 		chrome.storage.local.get('token', (result) => {
 			if (result.token) {
-				setT(result.token)
+				const token = result.token
+				const tokenParser = token.replace(/"/g, '')
+
+				setT(tokenParser)
 				dispatch(setTokenFound(true))
 				dispatch(setHasToken(true))
 				console.log("token alındı", result.token)
