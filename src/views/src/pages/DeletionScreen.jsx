@@ -9,6 +9,7 @@ function DeletionScreen({data}) {
   function startDeletion(){
     startMessageDeletion(data.id, messageCount)
     deletionProcessListener()
+    setMessageCount(0)
   }
   function handleChange(e){
     setMessageCount(e.target.value)

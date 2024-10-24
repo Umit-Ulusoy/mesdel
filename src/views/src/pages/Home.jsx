@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { IsLogin } from '../components/index'
-import { getToken } from '../helpers/apiHandler'
 import { setTokenFound, setHasToken } from '../store/slices/keepSlice'
 import { useDispatch } from 'react-redux'
 
