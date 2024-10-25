@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { startMessageDeletion, deletionProcessListener } from '../helpers/businessHandler'
 import Input from '../components/Input'
 import Button from '../components/Button'
+import Progress from '../components/Progress'
+
 function DeletionScreen({data}) {
   const [messageCount, setMessageCount] = useState(0)
 
@@ -26,7 +28,7 @@ function DeletionScreen({data}) {
       
       <label className='text-base'>
         Count: 
-        <span className='flex flex-row gap-2 mt-2'>
+        <span className='flex flex-row gap-2 mt-2 justify-center items-center'>
           <Input 
             handleChange={handleChange}
             value={messageCount}
@@ -38,13 +40,13 @@ function DeletionScreen({data}) {
           />
           <Button
             text="Sil"
-            styles="btn-md"
+            styles="btn-sm btn-neutral"
             handleClick={startDeletion}
           />
         </span>
       </label>
 
-	    <div id="progress">0</div>
+      <Progress />
     </>
   )
 }

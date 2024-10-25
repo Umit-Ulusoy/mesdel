@@ -12,11 +12,12 @@ const ACTIONS = {
 function deletionProcessListener(){
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_PROGRESS) {
-            document.getElementById("progress").innerText = `İlerleme: ${request.progress}%`
+            document.getElementById("progress").value = request.progress
+            document.getElementById("progressText").innerText = `%${request.progress}`
         }
 
         if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_COMPLETE) {
-            document.getElementById("progress").innerText = `Tamamlandı!`
+            document.getElementById("progressText").innerText = `Tamamlandı!`
         }
     })
 }
