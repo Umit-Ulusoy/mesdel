@@ -3,6 +3,7 @@ import { getUserDms } from '../helpers/apiHandler'
 import { Modal } from './index'
 import { DeletionScreen } from '../pages/index'
 import ModalUI from './ModalUI'
+import UserCard from './UserCard'
 
 function DmList({token}) {
     const [dms, setDms] = useState([])
@@ -48,13 +49,9 @@ function DmList({token}) {
 
     return (
         <>
-            {dms?.map(dm => (
-                <div key={dm.id} onClick={()=> handleOpenModal(dm)} className='flex flex-col justify-center items-center'>
-                    <img src={dm.user.avatarUrl} alt={`${dm.user.username}'s avatar`} title={`${dm.user.username}'s avatar`} />
-                    <p>Username: {dm.user.username}</p>
-                    <p>Global Name: {dm.user.globalName}</p>
-                </div>
-            ))}
+            <div className='flex flex-col gap-3'>
+                {dms?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
+            </div>
 
             <ModalUI
                 show={showModal} 
