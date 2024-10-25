@@ -5,6 +5,8 @@ import { DeletionScreen } from '../pages/index'
 import ModalUI from './ModalUI'
 import UserCard from './UserCard'
 
+import SearchInput from './SearchInput'
+
 function DmList({token}) {
     const [dms, setDms] = useState([])
     const [userToken, setUserToken] = useState(null)
@@ -48,7 +50,8 @@ function DmList({token}) {
     }
 
     return (
-        <>
+        <section id="dmlist" className="flex flex-col gap-4">
+			<SearchInput />
             <div className='flex flex-col gap-3'>
                 {dms?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
             </div>
@@ -60,7 +63,7 @@ function DmList({token}) {
                 title="Message Deletion Screen"
 				styles="mt-4 text-gray-600 flex flex-col justify-center items-center gap-[15px]"
             />
-        </>
+        </section>
     )    
 }
 
