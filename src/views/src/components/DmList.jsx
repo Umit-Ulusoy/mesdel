@@ -61,6 +61,7 @@ function DmList({token}) {
                 onClose={handleCloseModal} 
                 children={<DeletionScreen data={modalData} />}
                 title="Message Deletion Screen"
+				styles="mt-4 text-gray-600 flex flex-col justify-center items-center gap-[15px]"
             />
         </>
     )    

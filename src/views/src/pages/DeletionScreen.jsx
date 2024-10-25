@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { startMessageDeletion, deletionProcessListener } from '../helpers/businessHandler'
-
+import Input from '../components/Input'
 function DeletionScreen({data}) {
   const [messageCount, setMessageCount] = useState(0)
 
@@ -20,10 +20,22 @@ function DeletionScreen({data}) {
   
   return (
     <>
-      <img src={user.avatarUrl} alt="Avatar Image" />
-      <span>User: {user.globalName} / {user.username}</span>
-      <input type="number" name="messageCount" min={1} value={messageCount} onChange={handleChange} />
+      <img src={user.avatarUrl} alt="User Avatar Image" className="rounded-lg" />
+      <p className='text-base'><span className="font-medium">{user.globalName}</span> / {user.username}</p>
       
+      <label className='text-base'>
+        Count: 
+        <Input 
+          handleChange={handleChange}
+          value={messageCount}
+          type="number"
+          styles="mt-2"
+          props={{
+            name:"messageCount",
+            min: 1
+          }}
+        />
+      </label>
 	    <button onClick={startDeletion}>Sil</button>
 	  
 	    <div id="progress">0</div>
