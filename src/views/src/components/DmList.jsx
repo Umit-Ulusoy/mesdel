@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { getUserDms } from '../helpers/apiHandler'
-import { Modal } from './index'
 import { DeletionScreen } from '../pages/index'
 import ModalUI from './ModalUI'
 import UserCard from './UserCard'
@@ -9,7 +8,6 @@ import SearchInput from './SearchInput'
 
 function DmList({token}) {
     const [dms, setDms] = useState([])
-    const [userToken, setUserToken] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -50,7 +48,7 @@ function DmList({token}) {
     }
 
     return (
-        <section id="dmlist" className="flex flex-col gap-4">
+        <section id="dmlist" className="w-full flex flex-col gap-4">
 			<SearchInput />
             <div className='flex flex-col gap-3'>
                 {dms?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { IsLogin } from '../components/index'
-import { setTokenFound, setHasToken } from '../store/slices/keepSlice'
+import { setTokenFound } from '../store/slices/keepSlice'
 import { useDispatch } from 'react-redux'
 
 function Home(){
@@ -16,13 +16,14 @@ function Home(){
 
 				setT(tokenParser)
 				dispatch(setTokenFound(true))
-				dispatch(setHasToken(true))
+				localStorage.setItem('hasToken', true)
 				console.log("token alındı", result.token)
 			
 			} else {
 				console.log("Token bulunamadı")
 				dispatch(setTokenFound(false))
-				dispatch(setHasToken(false))
+				localStorage.setItem('hasToken', false)
+
 			}
 		})
     })

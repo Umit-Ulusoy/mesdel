@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { startMessageDeletion, deletionProcessListener } from '../helpers/businessHandler'
+import { startMessageDeletion } from '../helpers/businessHandler'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import Progress from '../components/Progress'
@@ -11,15 +11,12 @@ function DeletionScreen({data}) {
   const user = data.user
   function startDeletion(){
     startMessageDeletion(data.id, messageCount)
-    deletionProcessListener()
     setMessageCount(0)
   }
   function handleChange(e){
     setMessageCount(e.target.value)
   }
-  useEffect(()=> {
-	  chrome.runtime.connect({ name: 'MAIN_POPUP' })
-  }, [])
+  
   
   return (
     <>

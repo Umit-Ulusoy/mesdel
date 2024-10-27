@@ -1,13 +1,14 @@
 import { Dashboard } from "./index"
 import { getUserData } from "../helpers/apiHandler"
 import { useDispatch, useSelector } from "react-redux"
-import { setHasToken, setOpenBefore } from '../store/slices/keepSlice'
+import { setOpenBefore } from '../store/slices/keepSlice'
 import { useEffect, useState } from "react"
 
 function Welcome({token}){
     const [user, setUser] = useState({})
     const dispatch = useDispatch()
-    const { tokenFound, openBefore, hasToken } = useSelector(state=> state.keep)
+    const hasToken = localStorage.getItem('hasToken')
+    const { tokenFound, openBefore } = useSelector(state=> state.keep)
     useEffect(()=> {
         if(token){
             const init = async ()=> {
@@ -22,7 +23,7 @@ function Welcome({token}){
     } else if (tokenFound && !openBefore) {
         function handleClick(){
             dispatch(setOpenBefore(true))
-            dispatch(setHasToken(true))        
+            localStorage.setItem("hasToken", true)
         }
         
         return (
