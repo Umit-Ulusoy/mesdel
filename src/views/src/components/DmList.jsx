@@ -9,6 +9,7 @@ import SearchInput from './SearchInput'
 
 function DmList({token}) {
     const [dms, setDms] = useState([])
+    const [filteredDms, setFilteredDms] = useState(null)
     const [userToken, setUserToken] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -49,11 +50,23 @@ function DmList({token}) {
         setShowModal(false)
     }
 
+    const filterDms = () => {
+        const searchInput = document.getElementById('search-input');
+        const inputValue = searchInput.value;
+        console.log(inputValue);
+        
+        const regex = new RegExp(inputValue, 'i');
+        const filteredDms = dms.filter(dm => dm.user.globalName && dm.user.globalName.search(regex) !== -1);
+        console.log(filteredDms);
+        
+        setFilteredDms(filteredDms.length ? filteredDms : null);
+    };
+
     return (
         <section id="dmlist" className="flex flex-col gap-4">
-			<SearchInput />
+			<SearchInput handleChange={filterDms} />
             <div className='flex flex-col gap-3'>
-                {dms?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
+                {(filteredDms || dms)?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
             </div>
 
             <ModalUI

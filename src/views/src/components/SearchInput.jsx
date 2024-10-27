@@ -7,6 +7,7 @@ function SearchInput({value, handleChange, styles, props}) {
 			<input 
 			  type="text" 
 			  className="grow" 
+			  id='search-input'
 			  placeholder="Search" 
 			  onChange={handleChange}
 			  value={value}
