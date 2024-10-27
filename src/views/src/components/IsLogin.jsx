@@ -1,4 +1,4 @@
-import { Dashboard, Welcome } from '../pages/index'
+import { Dashboard, Welcome } from '@pages'
 import { useSelector } from "react-redux"
 function IsLogin({token, hasToken}){
     const { openBefore, tokenFound } = useSelector((state)=> state.keep)

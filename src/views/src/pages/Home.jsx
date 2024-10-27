@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import { IsLogin } from '../components/index'
-import { setTokenFound } from '../store/slices/keepSlice'
 import { useDispatch } from 'react-redux'
+
+import { IsLogin } from '@components'
+
+import { setTokenFound } from '../store/slices/keepSlice'
 import { isHasToken } from '../../../helpers/tokenHandler'
+
 function Home(){
     const dispatch = useDispatch()
     const [t, setT] = useState(null)

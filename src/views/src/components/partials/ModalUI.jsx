@@ -1,5 +1,5 @@
 import React from 'react'
-import CloseIcon from './icons/CloseIcon'
+import { CloseIcon } from '@icons'
 
 const ModalUI = ({ show, onClose, children, title, styles }) => {
     if (!show) return null

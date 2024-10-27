@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { startMessageDeletion } from '../helpers/businessHandler'
-import Input from '../components/Input'
-import Button from '../components/Button'
-import Progress from '../components/Progress'
+import React, { useState } from 'react'
+
+import { startMessageDeletion } from '@handlers'
+import { Button, Input, Progress } from '@partials'
 
 function DeletionScreen({data}) {
   const [messageCount, setMessageCount] = useState(0)

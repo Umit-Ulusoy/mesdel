@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchIcon from './icons/SearchIcon'
+import { SearchIcon } from '@icons'
 
 function SearchInput({value, handleChange, styles, props}) {
     return (

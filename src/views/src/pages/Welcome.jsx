@@ -1,7 +1,7 @@
-import { Dashboard } from "./index"
-import { getUserData } from "../helpers/apiHandler"
-import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
+import { Dashboard } from "@pages"
+import { getUserData } from "@handlers"
+import { useSelector } from "react-redux"
 
 function Welcome({token, hasToken}){
     const [user, setUser] = useState({})
