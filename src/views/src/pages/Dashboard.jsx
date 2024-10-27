@@ -10,8 +10,6 @@ function Dashboard({token}){
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [filteredDms, setFilteredDms] = useState(null)
-
-
     useEffect(()=> {
         deletionProcessListener()
         chrome.runtime.connect({ name: 'MAIN_POPUP' })
@@ -55,6 +53,7 @@ function Dashboard({token}){
         <section id="dashboard" className="w-full flex flex-col justify-center items-center p-2">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center p-2">DASHBOARD</h1>
             <SearchInput handleChange={filterDms} />
+			<br />
             <Progress />
             {error && <> {error?.message} </>}
             {loading ? "Yükleniyor.." : <DmList dms={dms} filteredDms={filteredDms} />}
