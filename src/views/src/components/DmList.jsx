@@ -8,11 +8,7 @@ import SearchInput from './SearchInput'
 
 function DmList({token}) {
     const [dms, setDms] = useState([])
-<<<<<<< HEAD
-=======
     const [filteredDms, setFilteredDms] = useState(null)
-    const [userToken, setUserToken] = useState(null)
->>>>>>> cb1e398269a9c045834f3c10db1106cfd0cd4604
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -21,7 +17,6 @@ function DmList({token}) {
 
     useEffect(() => {
         if (token) {
-            setUserToken(token);
             async function fetchDms() {
                 try {
                     const tokenParser = token.replace(/"/g, '');
@@ -65,13 +60,8 @@ function DmList({token}) {
     };
 
     return (
-<<<<<<< HEAD
         <section id="dmlist" className="w-full flex flex-col gap-4">
-			<SearchInput />
-=======
-        <section id="dmlist" className="flex flex-col gap-4">
 			<SearchInput handleChange={filterDms} />
->>>>>>> cb1e398269a9c045834f3c10db1106cfd0cd4604
             <div className='flex flex-col gap-3'>
                 {(filteredDms || dms)?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
             </div>

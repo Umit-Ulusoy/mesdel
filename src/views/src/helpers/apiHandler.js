@@ -101,5 +101,5 @@ export {
     getUserData,
     getUserDms,
 
-    getToken
+    getToken,
 }

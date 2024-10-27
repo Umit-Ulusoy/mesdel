@@ -1,14 +1,13 @@
 import { Dashboard } from "./index"
 import { getUserData } from "../helpers/apiHandler"
-import { useDispatch, useSelector } from "react-redux"
-import { setOpenBefore } from '../store/slices/keepSlice'
+import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 
-function Welcome({token}){
+function Welcome({token, hasToken}){
     const [user, setUser] = useState({})
-    const dispatch = useDispatch()
-    const hasToken = localStorage.getItem('hasToken')
-    const { tokenFound, openBefore } = useSelector(state=> state.keep)
+    const [isOpenBefore, setIsOpenBefore] = useState(localStorage.getItem('openBefore'))
+    const { tokenFound } = useSelector(state=> state.keep)
+    
     useEffect(()=> {
         if(token){
             const init = async ()=> {
@@ -18,12 +17,12 @@ function Welcome({token}){
             init()
         }
     }, [token])
-    if (!tokenFound && !openBefore) {
+    if (!tokenFound && !isOpenBefore) {
         return <h1>Lütfen discord sayfasına giriş yaptıktan ya da yeniledikten sonra tekrar deneyiniz.</h1>
-    } else if (tokenFound && !openBefore) {
-        function handleClick(){
-            dispatch(setOpenBefore(true))
-            localStorage.setItem("hasToken", true)
+    } else if (tokenFound && !isOpenBefore) {
+        async function handleClick(){
+            localStorage.setItem('openBefore', true)
+            setIsOpenBefore(true)  
         }
         
         return (
@@ -40,7 +39,7 @@ function Welcome({token}){
                 <button onClick={handleClick} className="btn btn-outline w-[9rem] h-[2rem]">Devam</button>
             </div>
         )
-    } else if (hasToken && openBefore) {
+    } else if (hasToken && isOpenBefore) {
         return <Dashboard token={token} />
     } 
 }

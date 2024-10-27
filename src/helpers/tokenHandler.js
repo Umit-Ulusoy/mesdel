@@ -50,8 +50,14 @@ function deleteUserToken() {
     }
 }
 
+async function isHasToken() {
+    const token = await getUserToken()
+    return token ? true : false
+}
+
 export {
     setUserToken,
     getUserToken,
     deleteUserToken,
+    isHasToken
 };
