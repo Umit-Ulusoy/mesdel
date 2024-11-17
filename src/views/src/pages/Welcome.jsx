@@ -3,7 +3,7 @@ import { Dashboard } from "@pages"
 import { getUserData } from "@handlers"
 import { useSelector } from "react-redux"
 
-function Welcome({token, hasToken}){
+function Welcome({token, hasToken, progressValue, isComplete}){
     const [user, setUser] = useState({})
     const [isOpenBefore, setIsOpenBefore] = useState(localStorage.getItem('openBefore'))
     const { tokenFound } = useSelector(state=> state.keep)
@@ -40,7 +40,7 @@ function Welcome({token, hasToken}){
             </div>
         )
     } else if (hasToken && isOpenBefore) {
-        return <Dashboard token={token} />
+        return <Dashboard token={token} progressValue={progressValue} isComplete={isComplete} />
     } 
 }
 

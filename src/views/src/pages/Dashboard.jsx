@@ -2,19 +2,14 @@ import { useEffect, useState } from "react"
 
 import { DmList } from "@components"
 import { SearchInput, Progress } from "@partials"
-import { getUserDms, deletionProcessListener } from "@handlers"
+import { getUserDms } from "@handlers"
 
-function Dashboard({token}){
+function Dashboard({token, progressValue, isComplete}){
 
     const [dms, setDms] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [filteredDms, setFilteredDms] = useState(null)
-    useEffect(()=> {
-        deletionProcessListener()
-        chrome.runtime.connect({ name: 'MAIN_POPUP' })
-    }, [])
-
     useEffect(() => {
         if (token) {
             async function fetchDms() {
@@ -54,9 +49,9 @@ function Dashboard({token}){
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center p-2">DASHBOARD</h1>
             <SearchInput handleChange={filterDms} />
 			<br />
-            <Progress />
+            {progressValue && <Progress id="progress" value={progressValue} isComplete={isComplete} />}
             {error && <> {error?.message} </>}
-            {loading ? "Yükleniyor.." : <DmList dms={dms} filteredDms={filteredDms} />}
+            {loading ? "Yükleniyor.." : <DmList dms={dms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
             
         </section>
     )

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { startMessageDeletion } from '@handlers'
 import { Button, Input, Progress } from '@partials'
 
-function DeletionScreen({data}) {
+
+function DeletionScreen({data, progressValue, isComplete}) {
   const [messageCount, setMessageCount] = useState(0)
 
   if(!data) return <p>Kullanıcı bulunamadı.</p>
@@ -15,7 +16,7 @@ function DeletionScreen({data}) {
   function handleChange(e){
     setMessageCount(e.target.value)
   }
-  
+
   
   return (
     <>
@@ -42,7 +43,7 @@ function DeletionScreen({data}) {
         </span>
       </label>
 
-      <Progress />
+      <Progress id="progress" value={progressValue} isComplete={isComplete} />
     </>
   )
 }

@@ -6,7 +6,8 @@ import { IsLogin } from '@components'
 import { setTokenFound } from '../store/slices/keepSlice'
 import { isHasToken } from '../../../helpers/tokenHandler'
 
-function Home(){
+function Home({progressValue, isComplete}){
+
     const dispatch = useDispatch()
     const [t, setT] = useState(null)
     const [hasToken, setHasToken] = useState(false)
@@ -23,7 +24,7 @@ function Home(){
 				const tokenParser = token.replace(/"/g, '')
 				setT(tokenParser)
 				dispatch(setTokenFound(true))
-				console.log("token alındı", result.token)
+				console.log("token alındı!")
 			
 			} else {
 				console.log("Token bulunamadı")
@@ -32,10 +33,14 @@ function Home(){
 			}
 		})
     })
+
+	useEffect(()=> {
+		console.log('progressValue in home', progressValue)
+	}, [progressValue])
     
     return(
         <>
-            <IsLogin token={t} hasToken={hasToken} />
+            <IsLogin token={t} hasToken={hasToken} progressValue={progressValue} isComplete={isComplete} />
         </>
     )
 }

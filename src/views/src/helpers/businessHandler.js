@@ -12,23 +12,13 @@ const ACTIONS = {
 function deletionProcessListener(){
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_PROGRESS) {
-			const progresses = document.querySelectorAll("#progress")
-			const progressTexts = document.querySelectorAll("#progressText")
-			console.log(progressTexts)
-			progresses.forEach(progress=> {
-				progress.value = request.progress
-			})
-			progressTexts.forEach(progressText=> {
-				progressText.innerText = `%${request.progress}`
-			})
+			document.getElementById("progress").value = request.progress
+			document.getElementById("progressText").innerText = `%${request.progress}`
         }
 
         if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_COMPLETE) {
-			const progressTexts = document.querySelectorAll("#progressText")
-			progressTexts.forEach(progressText=> {
-				progressText.innerText = `Tamamlandı!`
-			})
-        }
+			document.getElementById("progressText").innerText = `Tamamlandı!`
+		}
     })
 }
 
@@ -46,5 +36,6 @@ function startMessageDeletion(channelId, messageCount){
 
 export {
     startMessageDeletion,
-    deletionProcessListener
+    deletionProcessListener,
+    ACTIONS
 }

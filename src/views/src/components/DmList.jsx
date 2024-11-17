@@ -4,7 +4,7 @@ import { DeletionScreen } from '@pages'
 import { ModalUI, UserCard } from '@partials'
 
 
-function DmList({dms, filteredDms}) {
+function DmList({dms, filteredDms, progressValue, isComplete}) {
 
     const [showModal, setShowModal] = useState(false)
     const [modalData, setModalData] = useState(null)
@@ -28,8 +28,8 @@ function DmList({dms, filteredDms}) {
 
             <ModalUI
                 show={showModal} 
-                onClose={handleCloseModal} 
-                children={<DeletionScreen data={modalData} />}
+                onClose={handleCloseModal}
+                children={<DeletionScreen data={modalData} progressValue={progressValue} isComplete={isComplete} />}
                 title="Message Deletion Screen"
 				styles="mt-4 text-gray-600 flex flex-col justify-center items-center gap-[15px]"
             />
