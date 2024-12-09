@@ -9,8 +9,6 @@ export const keepSlice = createSlice({
     },
     reducers: {
         setToken: (state, action) => {
-            console.log('SET TOKEN 2', action.payload)
-            console.log('SET TOKEN', state.token )
             state.token = action.payload
         },
         setOpenBefore: (state, action)=>{

@@ -21,19 +21,13 @@ function Home({progressValue, isComplete}){
 				const tokenParser = token.replace(/"/g, '')
 				setT(tokenParser)
 				handleTokenFound(true)
-				console.log("token alındı!")
 			
 			} else {
-				console.log("Token bulunamadı")
 				handleTokenFound(false)
 
 			}
 		})
     })
-
-	useEffect(()=> {
-		console.log('progressValue in home', progressValue)
-	}, [progressValue])
     
     return(
         <>

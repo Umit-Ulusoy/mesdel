@@ -20,7 +20,6 @@ function Dashboard({token, progressValue, isComplete}){
             async function fetchDms() {
                 try {
                     const tokenParser = token.replace(/"/g, '');
-                    console.log('DM dosyasındaki token: ', tokenParser);
                     
                     let dmsData = await getUserDms(tokenParser);
                     dmsData = JSON.parse(dmsData);
@@ -45,11 +44,9 @@ function Dashboard({token, progressValue, isComplete}){
     const filterDms = () => {
         const searchInput = document.getElementById('search-input');
         const inputValue = searchInput.value;
-        console.log(inputValue);
         
         const regex = new RegExp(inputValue, 'i');
         const filteredDms = dms.filter(dm => dm.user.globalName && dm.user.globalName.search(regex) !== -1);
-        console.log(filteredDms);
         
         setFilteredDms(filteredDms.length ? filteredDms : null);
     };
