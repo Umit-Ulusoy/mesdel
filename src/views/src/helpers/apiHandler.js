@@ -1,6 +1,5 @@
 const API_URL = 'https://discord.com/api/v9/';
 import axios from "axios";
-import { error } from "console";
 async function getUserData(TOKEN) {
     const url = `${API_URL}users/@me`;
 
@@ -97,13 +96,14 @@ function getToken(){
 }
 
 function logout(){
-    let result = chrome.storage.local.clear()
-    result.then(()=>{
-        console.log('veriler temizlendi.')
-    }, (err)=>{
-        console.log('Hata: ', err?.message)
+    chrome.storage.local.clear(() => {
+        if (chrome.runtime.lastError) {
+            console.error("Hata: ", chrome.runtime.lastError);
+        } else {
+            console.log("chrome local temizlendi!")
+        }
     })
-    localStorage.removeItem('openBefore')
+    localStorage.clear()
 }
 
 

@@ -1,11 +1,11 @@
 import { useRoutes } from 'react-router-dom'
 import { Home } from '@pages'
 
-function Routes({progressValue}) {
+function Routes({progressValue, isComplete}) {
     const routes = useRoutes([
         {
             path: '/',
-            element: <Home progressValue={progressValue} />,
+            element: <Home progressValue={progressValue} isComplete={isComplete} />,
         },
     ])
     return routes;    

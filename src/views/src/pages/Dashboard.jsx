@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
-import { DmList } from "@components"
-import { SearchInput, Progress } from "@partials"
+import { DmList, LogoutScreen } from "@components"
+import { SearchInput, Progress, ModalUI } from "@partials"
 import { getUserDms } from "@handlers"
 
 function Dashboard({token, progressValue, isComplete}){
@@ -10,6 +10,9 @@ function Dashboard({token, progressValue, isComplete}){
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [filteredDms, setFilteredDms] = useState(null)
+    const [showModal, setShowModal] = useState(false)
+
+
     useEffect(() => {
         if (token) {
             async function fetchDms() {
@@ -31,6 +34,11 @@ function Dashboard({token, progressValue, isComplete}){
             fetchDms();
         }
     }, [token])
+
+    const handleOpenModal = () => setShowModal(true)
+    const handleCloseModal = () => setShowModal(false)
+    
+   
     
     const filterDms = () => {
         const searchInput = document.getElementById('search-input');
@@ -46,11 +54,24 @@ function Dashboard({token, progressValue, isComplete}){
 
     return (
         <section id="dashboard" className="w-full flex flex-col justify-center items-center p-2">
+            <ModalUI 
+                show={showModal} 
+                onClose={handleCloseModal}
+                children={<LogoutScreen />}
+                title="Çıkış Ekranı"
+                styles="p-2 text-gray-600 flex flex-col justify-center items-center gap-[15px]" 
+            />
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center p-2">DASHBOARD</h1>
-            <SearchInput handleChange={filterDms} />
+            <div className="flex flex-row gap-4">
+                <SearchInput handleChange={filterDms} />
+                <button 
+                className="btn btn-error text-white"
+                onClick={handleOpenModal}
+                >Logout</button>
+            </div>
 			<br />
-            {progressValue && <Progress id="progress" value={progressValue} isComplete={isComplete} />}
-            
+            {progressValue ? <Progress id="progress" value={progressValue} isComplete={isComplete} /> : null}
+            <br />
             {error && <> {error?.message} </>}
             {loading ? "Yükleniyor.." : <DmList dms={dms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
             
