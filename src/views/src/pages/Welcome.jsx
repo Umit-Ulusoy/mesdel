@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { Dashboard } from "@pages"
 import { getUserData } from "@handlers"
-import { useSelector } from "react-redux"
+import { useDispatchs } from '@hooks'
 
 function Welcome({token, hasToken, progressValue, isComplete}){
     const [user, setUser] = useState({})
     const [isOpenBefore, setIsOpenBefore] = useState(localStorage.getItem('openBefore'))
-    const { tokenFound } = useSelector(state=> state.keep)
+    const { tokenFoundValue } = useDispatchs()
+    const tokenFound = tokenFoundValue()
     
     useEffect(()=> {
         if(token){

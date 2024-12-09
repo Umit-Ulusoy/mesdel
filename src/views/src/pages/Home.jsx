@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 
 import { IsLogin } from '@components'
-
-import { setTokenFound } from '../store/slices/keepSlice'
 import { isHasToken } from '../../../helpers/tokenHandler'
+import { useDispatchs } from '../hooks/index'
 
 function Home({progressValue, isComplete}){
-
-    const dispatch = useDispatch()
+	const { handleTokenFound } = useDispatchs()
     const [t, setT] = useState(null)
     const [hasToken, setHasToken] = useState(false)
 	
@@ -23,12 +20,12 @@ function Home({progressValue, isComplete}){
 				const token = result.token
 				const tokenParser = token.replace(/"/g, '')
 				setT(tokenParser)
-				dispatch(setTokenFound(true))
+				handleTokenFound(true)
 				console.log("token alındı!")
 			
 			} else {
 				console.log("Token bulunamadı")
-				dispatch(setTokenFound(false))
+				handleTokenFound(false)
 
 			}
 		})

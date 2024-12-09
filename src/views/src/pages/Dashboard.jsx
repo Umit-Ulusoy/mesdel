@@ -50,6 +50,7 @@ function Dashboard({token, progressValue, isComplete}){
             <SearchInput handleChange={filterDms} />
 			<br />
             {progressValue && <Progress id="progress" value={progressValue} isComplete={isComplete} />}
+            
             {error && <> {error?.message} </>}
             {loading ? "Yükleniyor.." : <DmList dms={dms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
             
