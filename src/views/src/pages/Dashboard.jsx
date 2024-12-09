@@ -4,6 +4,8 @@ import { DmList, LogoutScreen } from "@components"
 import { SearchInput, Progress, ModalUI } from "@partials"
 import { getUserDms } from "@handlers"
 
+
+
 function Dashboard({token, progressValue, isComplete}){
 
     const [dms, setDms] = useState(null)
@@ -11,7 +13,7 @@ function Dashboard({token, progressValue, isComplete}){
     const [error, setError] = useState(null)
     const [filteredDms, setFilteredDms] = useState(null)
     const [showModal, setShowModal] = useState(false)
-
+    
 
     useEffect(() => {
         if (token) {

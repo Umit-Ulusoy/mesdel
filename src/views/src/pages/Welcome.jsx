@@ -5,6 +5,7 @@ import { useDispatchs } from '@hooks'
 
 function Welcome({token, hasToken, progressValue, isComplete}){
     const [user, setUser] = useState({})
+    const [isChecked, setIsChecked] = useState(false)
     const [isOpenBefore, setIsOpenBefore] = useState(localStorage.getItem('openBefore'))
     const { tokenFoundValue } = useDispatchs()
     const tokenFound = tokenFoundValue()
@@ -22,8 +23,14 @@ function Welcome({token, hasToken, progressValue, isComplete}){
         return <h1>Lütfen discord sayfasına giriş yaptıktan ya da yeniledikten sonra tekrar deneyiniz.</h1>
     } else if (tokenFound && !isOpenBefore) {
         async function handleClick(){
-            localStorage.setItem('openBefore', true)
-            setIsOpenBefore(true)  
+            if(isChecked){
+                localStorage.setItem('openBefore', true)
+                setIsOpenBefore(true) 
+            }
+        }
+
+        const handleCheckbox = () => {
+            setIsChecked((prev) => !prev)
         }
         
         return (
@@ -37,6 +44,14 @@ function Welcome({token, hasToken, progressValue, isComplete}){
                     <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>User Name: </span> 
                     <span className='bg-red-100 rounded p-[0.40rem]'>{user?.username}</span>
                 </p>
+                <label class="cursor-pointer label flex flex-row gap-4">
+                    <input type="checkbox"
+                        checked={isChecked}
+                        onChange={handleCheckbox}
+                        class="checkbox"
+                    />
+                    <span class="label-text text-sm">"Devam Et" butonuna tıklayarak, Discord MesDel uygulamasının tokenimi kullanmasına izin veriyor, <br />Tokenimin güvenliğinden benim sorumlu olduğumu ve uygulama kullanımım süresince oluşabilecek sorunları kabul ettiğimi onaylıyorum.</span>
+                </label>
                 <button onClick={handleClick} className="btn btn-outline w-[9rem] h-[2rem]">Devam</button>
             </div>
         )

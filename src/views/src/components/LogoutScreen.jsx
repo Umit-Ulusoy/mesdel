@@ -1,9 +1,15 @@
 import { Button } from '@partials'
 import { logout } from '@handlers'
+import { useNavigate } from "react-router-dom"
+
 
 const LogoutScreen = ()=>{
-
-    const logoutHandle = () => logout()
+    
+    const navigate = useNavigate()
+    const logoutHandle = () => {
+        logout()
+        navigate('/')
+    }
     
     return (
         <>
