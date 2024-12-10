@@ -4,7 +4,7 @@ import { DeletionScreen } from '@pages'
 import { ModalUI, UserCard } from '@partials'
 
 
-function DmList({dms, filteredDms, progressValue, isComplete}) {
+function DmList({dms, isFilteringDms, filteredDms, progressValue, isComplete}) {
 
     const [showModal, setShowModal] = useState(false)
     const [modalData, setModalData] = useState(null)
@@ -18,12 +18,21 @@ function DmList({dms, filteredDms, progressValue, isComplete}) {
         setShowModal(false)
     }
 
+    const dmsToDisplay =
+        isFilteringDms
+            ? filteredDms
+            : dms;
+
+    const noResults = dmsToDisplay.length === 0;
    
     return (
         <section id="dmlist" className="w-full flex flex-col gap-4">
 			
             <div className='flex flex-col gap-3'>
-                {(filteredDms || dms)?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
+                {noResults ?
+                <div>Herhangi bir DM kanalı bulunamadı!</div>
+            :
+            dmsToDisplay?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
             </div>
 
             <ModalUI

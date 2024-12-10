@@ -11,7 +11,8 @@ function Dashboard({token, progressValue, isComplete}){
     const [dms, setDms] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const [filteredDms, setFilteredDms] = useState(null)
+    const [filteredDms, setFilteredDms] = useState([])
+    const [isFilteringDms, setIsFilteringDms] = useState(false)
     const [showModal, setShowModal] = useState(false)
     
 
@@ -24,10 +25,10 @@ function Dashboard({token, progressValue, isComplete}){
                     let dmsData = await getUserDms(tokenParser);
                     dmsData = JSON.parse(dmsData);
                     setDms(dmsData);
-                    
                 } catch (err) {
                     setError(err.message);
                 } finally {
+                    
                     setLoading(false);
                 }
             }
@@ -39,7 +40,6 @@ function Dashboard({token, progressValue, isComplete}){
     const handleOpenModal = () => setShowModal(true)
     const handleCloseModal = () => setShowModal(false)
     
-   
     
     const filterDms = () => {
         const searchInput = document.getElementById('search-input');
@@ -48,7 +48,8 @@ function Dashboard({token, progressValue, isComplete}){
         const regex = new RegExp(inputValue, 'i');
         const filteredDms = dms.filter(dm => dm.user.globalName && dm.user.globalName.search(regex) !== -1);
         
-        setFilteredDms(filteredDms.length ? filteredDms : null);
+        setFilteredDms(filteredDms.length ? filteredDms : []);
+        setIsFilteringDms(inputValue.length ? true : false);
     };
 
     return (
@@ -68,11 +69,11 @@ function Dashboard({token, progressValue, isComplete}){
                 onClick={handleOpenModal}
                 >Logout</button>
             </div>
-			<br />
             {progressValue ? <Progress id="progress" value={progressValue} isComplete={isComplete} /> : null}
-            <br />
             {error && <> {error?.message} </>}
-            {loading ? "Yükleniyor.." : <DmList dms={dms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
+            {loading
+            ? "Yükleniyor.."
+            : <DmList dms={dms} isFilteringDms={isFilteringDms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
             
         </section>
     )
