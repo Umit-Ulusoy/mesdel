@@ -62,7 +62,7 @@ function Dashboard({token, progressValue, isComplete}){
                 styles="p-2 text-gray-600 flex flex-col justify-center items-center gap-[15px]" 
             />
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center p-2">DASHBOARD</h1>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4 py-2">
                 <SearchInput handleChange={filterDms} />
                 <button 
                 className="btn btn-error text-white"
@@ -72,7 +72,9 @@ function Dashboard({token, progressValue, isComplete}){
             {progressValue ? <Progress id="progress" value={progressValue} isComplete={isComplete} /> : null}
             {error && <> {error?.message} </>}
             {loading
-            ? "Yükleniyor.."
+            ? <div className="text-center text-base italic text-neutral-500 mb-4 pt-8">
+				Yükleniyor...
+			</div>
             : <DmList dms={dms} isFilteringDms={isFilteringDms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
             
         </section>

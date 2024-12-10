@@ -30,7 +30,7 @@ function DmList({dms, isFilteringDms, filteredDms, progressValue, isComplete}) {
 			
             <div className='flex flex-col gap-3'>
                 {noResults ?
-                <div>Herhangi bir DM kanalı bulunamadı!</div>
+                <div className="text-center text-base italic text-neutral-500 mb-4 pt-8">Herhangi bir DM kanalı bulunamadı!</div>
             :
             dmsToDisplay?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
             </div>

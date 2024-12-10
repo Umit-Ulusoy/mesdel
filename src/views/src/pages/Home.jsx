@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { IsLogin } from '@components'
 import { isHasToken } from '../../../helpers/tokenHandler'
-import { useDispatchs } from '../hooks/index'
+import { useDispatchs } from '@hooks'
 
 function Home({progressValue, isComplete}){
 	const { handleTokenFound } = useDispatchs()

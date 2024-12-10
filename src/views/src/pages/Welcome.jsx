@@ -9,7 +9,7 @@ function Welcome({token, hasToken, progressValue, isComplete}){
     const [isOpenBefore, setIsOpenBefore] = useState(localStorage.getItem('openBefore'))
     const { tokenFoundValue } = useDispatchs()
     const tokenFound = tokenFoundValue()
-    
+    console.log(isOpenBefore, tokenFound)
     useEffect(()=> {
         if(token){
             const init = async ()=> {
@@ -22,10 +22,12 @@ function Welcome({token, hasToken, progressValue, isComplete}){
     if (!tokenFound && !isOpenBefore) {
         return <h1>Lütfen discord sayfasına giriş yaptıktan ya da yeniledikten sonra tekrar deneyiniz.</h1>
     } else if (tokenFound && !isOpenBefore) {
-        async function handleClick(){
+        function handleClick(){
             if(isChecked){
+				console.log("giriş")
                 localStorage.setItem('openBefore', true)
-                setIsOpenBefore(true) 
+				setIsOpenBefore(true)
+				setIsChecked(true)
             }
         }
 
@@ -57,7 +59,9 @@ function Welcome({token, hasToken, progressValue, isComplete}){
         )
     } else if (hasToken && isOpenBefore) {
         return <Dashboard token={token} progressValue={progressValue} isComplete={isComplete} />
-    }
+    } else {
+		return "Page not found."
+	}
 }
 
 

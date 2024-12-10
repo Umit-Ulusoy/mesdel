@@ -94,24 +94,15 @@ function getToken(){
     })
 }
 
-async function logout() {
-    try {
-        await new Promise((resolve, reject) => {
-            chrome.storage.local.clear(() => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    console.log("chrome local başarıyla temizlendi!");
-                    resolve();
-                }
-            });
-        });
-        
-        localStorage.clear();
-        console.log("LocalStorage başarıyla temizlendi!");
-    } catch (error) {
-        console.error("Temizleme sırasında bir hata oluştu: ", error);
-    }
+function logout() {
+	chrome.storage.local.clear(() => {
+        if (chrome.runtime.lastError) {
+            console.error("Hata: ", chrome.runtime.lastError);
+        } else {
+            console.log("chrome local temizlendi!")
+        }
+    })
+    localStorage.clear()
 }
 
 
