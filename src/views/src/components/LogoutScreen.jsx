@@ -1,13 +1,17 @@
 import { Button } from '@partials'
 import { logout } from '@handlers'
 import { useNavigate } from "react-router-dom"
+import { useDispatchs } from '@hooks'
 
 
 const LogoutScreen = ()=>{
     
     const navigate = useNavigate()
+	const { handleTokenFound } = useDispatchs()
+	
     const logoutHandle = () => {
         logout()
+		handleTokenFound(false)
         navigate('/')
     }
     

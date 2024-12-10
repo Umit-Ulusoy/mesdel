@@ -57,7 +57,7 @@ function Welcome({token, hasToken, progressValue, isComplete}){
         )
     } else if (hasToken && isOpenBefore) {
         return <Dashboard token={token} progressValue={progressValue} isComplete={isComplete} />
-    } 
+    }
 }
 
 
