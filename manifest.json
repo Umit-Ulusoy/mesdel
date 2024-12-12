@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "Discord Msdel",
   "description":"...",
+  "default_locale": "tr",
   "version": "1.0.0",
   "permissions": [
     "tabs",
