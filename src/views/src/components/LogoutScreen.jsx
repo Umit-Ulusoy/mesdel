@@ -7,12 +7,13 @@ import { useDispatchs } from '@hooks'
 const LogoutScreen = ()=>{
     
     const navigate = useNavigate()
-	const { handleTokenFound, tokenFoundValue } = useDispatchs()
+	const { handleTokenFound } = useDispatchs()
 	
     const logoutHandle = async () => {
 		
-		await logout()
 		await handleTokenFound(false)
+		await logout()
+		
 		navigate('/')
 		
     }

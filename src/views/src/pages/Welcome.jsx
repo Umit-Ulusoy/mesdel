@@ -3,66 +3,70 @@ import { Dashboard } from "@pages"
 import { getUserData } from "@handlers"
 import { useDispatchs } from '@hooks'
 
-function Welcome({token, hasToken, progressValue, isComplete}){
+function Welcome({ token, hasToken, progressValue, isComplete }) {
     const [user, setUser] = useState({})
     const [isChecked, setIsChecked] = useState(false)
-    const [isOpenBefore, setIsOpenBefore] = useState(localStorage.getItem('openBefore'))
+    const [isOpenBefore, setIsOpenBefore] = useState(
+        localStorage.getItem('openBefore') || false
+    )
     const { tokenFoundValue } = useDispatchs()
     const tokenFound = tokenFoundValue()
-    console.log(isOpenBefore, tokenFound)
-    useEffect(()=> {
-        if(token){
-            const init = async ()=> {
+	
+	
+
+    useEffect(() => {
+        if (token) {
+            const init = async () => {
                 const userData = await getUserData(token)
                 setUser(userData)
-            }
+            };
             init()
         }
     }, [token])
-    if (!tokenFound && !isOpenBefore) {
-        return <h1>Lütfen discord sayfasına giriş yaptıktan ya da yeniledikten sonra tekrar deneyiniz.</h1>
-    } else if (tokenFound && !isOpenBefore) {
-        function handleClick(){
-            if(isChecked){
-				console.log("giriş")
-                localStorage.setItem('openBefore', true)
-				setIsOpenBefore(true)
-				setIsChecked(true)
-            }
-        }
 
-        const handleCheckbox = () => {
-            setIsChecked((prev) => !prev)
+    const handleClick = () => {
+        if (isChecked) {
+            console.log("giriş")
+            localStorage.setItem('openBefore', true);
+            setIsOpenBefore(true)
+            setIsChecked(true)
         }
-        
+    };
+
+    const handleCheckbox = () => {
+        setIsChecked((prev) => !prev)
+    };
+	const template = <h1>Lütfen discord sayfasına giriş yaptıktan ya da yeniledikten sonra tekrar deneyiniz.</h1>
+    if (!tokenFound && !isOpenBefore) {
+        return template
+    } else if (tokenFound && !isOpenBefore) {
         return (
             <div className="h-full flex flex-col justify-center items-center gap-4">
                 <img src={user?.avatar} alt="discord avatar" className="w-32 rounded-lg" />
                 <p className="flex flex-row gap-1">
-                    <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>Global Name: </span> 
+                    <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>Global Name: </span>
                     <span className='bg-red-100 rounded p-[0.40rem]'>{user?.globalName}</span>
                 </p>
                 <p className="flex flex-row gap-1">
-                    <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>User Name: </span> 
+                    <span className='bg-zinc-200 rounded p-[0.40rem] font-medium'>User Name: </span>
                     <span className='bg-red-100 rounded p-[0.40rem]'>{user?.username}</span>
                 </p>
-                <label class="cursor-pointer label flex flex-row gap-4">
+                <label className="cursor-pointer label flex flex-row gap-4">
                     <input type="checkbox"
                         checked={isChecked}
                         onChange={handleCheckbox}
-                        class="checkbox"
+                        className="checkbox"
                     />
-                    <span class="label-text text-sm">"Devam Et" butonuna tıklayarak, Discord MesDel uygulamasının tokenimi kullanmasına izin veriyor, <br />Tokenimin güvenliğinden benim sorumlu olduğumu ve uygulama kullanımım süresince oluşabilecek sorunları kabul ettiğimi onaylıyorum.</span>
+                    <span className="label-text text-sm">"Devam Et" butonuna tıklayarak, Discord MesDel uygulamasının tokenimi kullanmasına izin veriyor, <br />Tokenimin güvenliğinden benim sorumlu olduğumu ve uygulama kullanımım süresince oluşabilecek sorunları kabul ettiğimi onaylıyorum.</span>
                 </label>
                 <button onClick={handleClick} className="btn btn-outline w-[9rem] h-[2rem]">Devam</button>
             </div>
-        )
+        );
     } else if (hasToken && isOpenBefore) {
-        return <Dashboard token={token} progressValue={progressValue} isComplete={isComplete} />
+        return <Dashboard token={token} progressValue={progressValue} isComplete={isComplete} />;
     } else {
-		return "Page not found."
-	}
+        return template
+    }
 }
 
-
-export default Welcome
+export default Welcome;
