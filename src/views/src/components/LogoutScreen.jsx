@@ -1,7 +1,8 @@
 import { Button } from '@partials'
-import { logout } from '@handlers'
+import { logout, _t } from '@handlers'
 import { useNavigate } from "react-router-dom"
 import { useDispatchs } from '@hooks'
+
 
 
 const LogoutScreen = ()=>{
@@ -20,11 +21,13 @@ const LogoutScreen = ()=>{
     
     return (
         <>
-            <h1 className="text-base">Eklentiden tamamen çıkış yapmak istediğinize emin misiniz? Tüm bilgileriniz silenecektir.</h1>
+            <h1 className="text-base">
+                { _t('logout_modal_text') }
+            </h1>
             <div className='flex flex-row gap-4'>
                 <Button 
                 styles="btn-error text-white" 
-                text="Çıkış yap" 
+                text={ _t('logout_button_text') } 
                 handleClick={logoutHandle}
                 />
             </div>

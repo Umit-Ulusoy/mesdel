@@ -1,0 +1,78 @@
+{
+    "token_not_found": {
+      "message": "",
+      "description": "Displayed when the token is missing."
+    },
+    "welcome_username": {
+      "message": "",
+      "description": "Welcome message personalized with the user's name."
+    },
+    "welcome_policy_text": {
+      "message": "",
+      "description": "Message informing the user about the terms and privacy policy."
+    },
+    "welcome_continue_button": {
+      "message": "",
+      "description": "Text for the 'Continue' button on the welcome screen."
+    },
+    "dashboard_title": {
+      "message": "",
+      "description": "Title displayed on the dashboard screen."
+    },
+    "dashboard_search_box_placeholder": {
+      "message": "",
+      "description": "Placeholder text for the search box on the dashboard."
+    },
+    "dashboard_logout_button": {
+      "message": "",
+      "description": "Text for the 'Logout' button on the dashboard."
+    },
+    "logout_modal_title": {
+      "message": "",
+      "description": "Title for the logout confirmation modal."
+    },
+    "logout_modal_text": {
+      "message": "",
+      "description": "Message asking for confirmation to log out."
+    },
+    "channel_photo_alt_text": {
+      "message": "",
+      "description": "Alternative text for channel photos.",
+      "placeholders": {
+        "channel_name": {
+          "content": "$1",
+          "example": "Ümit"
+        }
+      }
+    },
+    "deletion_modal_delete_button": {
+      "message": "",
+      "description": "Text for the 'Delete' button in the deletion modal."
+    },
+    "close_modal_button": {
+      "message": "",
+      "description": "Text for the button to close a modal."
+    },
+    "deletion_progression_completed_text": {
+      "message": "",
+      "description": "Message displayed when the deletion process is complete."
+    },
+    "deletion_progression_text": {
+      "message": "",
+      "description": "Message displayed while the deletion process is ongoing."
+    },
+    "no_channel_found": {
+      "message": "",
+      "description": "Displayed when no channels are found during a search."
+    },
+    "deletion_completed_push_notification_text": {
+      "message": "",
+      "description": "Push notification displayed when deletion is successfully completed.",
+      "placeholders": {
+        "message_count": {
+          "content": "$1",
+          "example": "50 messages deleted successfully!"
+        }
+      }
+    }
+  }
