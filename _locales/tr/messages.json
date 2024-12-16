@@ -1,14 +1,18 @@
 {
   "token_not_found": {
-    "message": "Token bulunamadı.",
+    "message": "Token bulunamadı! Lütfen Discord sayfasını açtıktan sonra tekrar deneyiniz.",
     "description": "Displayed when the token is missing."
   },
+  "welcome_global_name": {
+    "message": "Herkese Görünen Ad",
+    "description": "A text that prefixes the global name"
+  },
   "welcome_username": {
-    "message": "Hoş geldin, {username}!",
-    "description": "Welcome message personalized with the user's name."
+    "message": "Kullanıcı Adı",
+    "description": "A text that prefixes the username."
   },
   "welcome_policy_text": {
-    "message": "Devam ederek kullanım şartlarımızı ve gizlilik politikamızı kabul etmiş oluyorsunuz.",
+    "message": "'Devam Et' butonuna tıklayarak Discord MesDel uygulamasının tokenimi kullanmasına izin veriyor, tokenimin güvenliğinden benim sorumlu olduğumu ve uygulama kullanımım süresince oluşabilecek sorunları kabul ettiğimi onaylıyorum.",
     "description": "Message informing the user about the terms and privacy policy."
   },
   "welcome_continue_button": {
@@ -27,9 +31,17 @@
     "message": "Kanallar yükleniyor…",
     "description": "A message is displayed until the channels are listed."
   },
+  "no_channels_found": {
+    "message": "Herhangi bir kanal bulunamadı.",
+    "description": "A message is displayed when no channels found."
+  },
   "logout_button_text": {
     "message": "Çıkış Yap",
     "description": "Text for the 'Logout' button on the dashboard."
+  },
+  "no_user_found": {
+    "message": "Kullanıcı bulunamadı!",
+    "description": "A message is displayed when no user found."
   },
   "logout_modal_title": {
     "message": "Çıkış Yapmak Üzeresiniz",
@@ -45,16 +57,24 @@
     "placeholders": {
       "channel_name": {
         "content": "$1",
-        "example": "Ümit"
+        "example": "Channel photo for Ümit channel"
       }
     }
+  },
+  "deletion_modal_title": {
+    "message": "Mesaj Sil",
+    "description": "A title for message deletion modal."
+  },
+  "deletion_modal_count_text": {
+    "message": "Mesaj Sayısı",
+    "description": "Text for the 'Delete' button in the deletion modal."
   },
   "deletion_modal_delete_button": {
     "message": "Sil",
     "description": "Text for the 'Delete' button in the deletion modal."
   },
   "close_modal_button": {
-    "message": "Kapat",
+    "message": "Pencereyi Kapat",
     "description": "Text for the button to close a modal."
   },
   "deletion_progression_completed_text": {
@@ -62,15 +82,21 @@
     "description": "Message displayed when the deletion process is complete."
   },
   "deletion_progression_text": {
-    "message": "Silme işlemi devam ediyor...",
-    "description": "Message displayed while the deletion process is ongoing."
+    "message": "%$PERCENTAGE$",
+    "description": "Message deletion percentage is displayed progression screen.",
+    "placeholders": {
+      "percentage": {
+        "content": "$1",
+        "example": "75%"
+      }
+    }
   },
   "no_channel_found": {
-    "message": "Hiçbir kanal bulunamadı.",
+    "message": "Kanal bulunamadı.",
     "description": "Displayed when no channels are found during a search."
   },
   "deletion_completed_push_notification_text": {
-    "message": "Silme işlemi tamamlandı, $MESSAGE_COUNT$",
+    "message": "Silme işlemi tamamlandı. $MESSAGE_COUNT$ mesaj başarıyla uzaya fırlatıldı!",
     "description": "Push notification displayed when deletion is successfully completed.",
     "placeholders": {
       "message_count": {

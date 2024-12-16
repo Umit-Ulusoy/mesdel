@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { startMessageDeletion } from '@handlers'
+import { startMessageDeletion, _t } from '@handlers'
 import { Button, Input, Progress } from '@partials'
 
 
@@ -20,11 +20,11 @@ function DeletionScreen({data, progressValue, isComplete}) {
   
   return (
     <>
-      <img src={user.avatarUrl} alt="User Avatar Image" className="rounded-lg" />
+      <img src={user.avatarUrl} alt={ _t('channel_photo_alt_text', [user.username]) } className="rounded-lg" />
       <p className='text-base'><span className="font-medium">{user.globalName}</span> / {user.username}</p>
       
       <label className='text-base'>
-        Count: 
+        { _t('deletion_modal_count_text') }: 
         <span className='flex flex-row gap-2 mt-2 justify-center items-center'>
           <Input 
             handleChange={handleChange}
@@ -36,7 +36,7 @@ function DeletionScreen({data, progressValue, isComplete}) {
             }}
           />
           <Button
-            text="Sil"
+            text={ _t('deletion_modal_delete_button') }
             styles="btn-sm btn-neutral"
             handleClick={startDeletion}
           />

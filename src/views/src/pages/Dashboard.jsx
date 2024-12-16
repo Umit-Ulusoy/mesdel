@@ -65,10 +65,13 @@ function Dashboard({token, progressValue, isComplete}){
 
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 text-center p-2">
                 { _t('dashboard_title') }
-            </h1>
-            <div className="flex flex-row gap-4 py-2">
+                </h1>
+                <div className="flex flex-row gap-4 py-2">
 
-                <SearchInput handleChange={filterDms} />
+                <SearchInput
+                handleChange={filterDms}
+                placeholder={ _t('dashboard_search_box_placeholder') }
+                />
                 <button 
                 className="btn btn-error text-white"
                 onClick={handleOpenModal}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { _t } from '@handlers';
 
 function Progress({value, styles, props, id, isComplete}) {
     return (
@@ -10,7 +11,10 @@ function Progress({value, styles, props, id, isComplete}) {
             id={id}
             {...props}
             ></progress>
-            <span id={`${id}Text`}> {isComplete ? 'Tamamlandı!' : `${value}%`} </span>
+            <span id={`${id}Text`}> {isComplete ?
+            _t('deletion_progression_completed_text')
+            :
+            _t('deletion_progression_text', [value])} </span>
         </div>  
     )
 }

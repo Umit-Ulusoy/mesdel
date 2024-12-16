@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { DeletionScreen } from '@pages'
 import { ModalUI, UserCard } from '@partials'
+import { _t } from '@handlers';
 
 
 function DmList({dms, isFilteringDms, filteredDms, progressValue, isComplete}) {
@@ -30,7 +31,9 @@ function DmList({dms, isFilteringDms, filteredDms, progressValue, isComplete}) {
 			
             <div className='flex flex-col gap-3'>
                 {noResults ?
-                <div className="text-center text-base italic text-neutral-500 mb-4 pt-8">Herhangi bir DM kanalı bulunamadı!</div>
+                <div>
+                    { _t('no_channels_found') }
+                </div>
             :
             dmsToDisplay?.map((dm, i)=> <UserCard data={dm} key={i} handleClick={()=> handleOpenModal(dm)} /> )}
             </div>
@@ -39,7 +42,7 @@ function DmList({dms, isFilteringDms, filteredDms, progressValue, isComplete}) {
                 show={showModal} 
                 onClose={handleCloseModal}
                 children={<DeletionScreen data={modalData} progressValue={progressValue} isComplete={isComplete} />}
-                title="Message Deletion Screen"
+                title={ _t('deletion_modal_title') }
 				styles="mt-4 text-gray-600 flex flex-col justify-center items-center gap-[15px]"
             />
         </section>

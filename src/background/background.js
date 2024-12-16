@@ -3,6 +3,7 @@ import { getUserId } from '../helpers/apiHandler.js';
 import { getUserToken } from '../helpers/tokenHandler.js';
 import { setIconBusy, setIconIdle, setIconSuccess} from '../helpers/iconHandler.js';
 import { showNotification } from '../helpers/notificationHandler.js';
+import { _t } from '../helpers/translationHandler.js';
 
 let
 authorId,
@@ -84,7 +85,9 @@ chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
     } else {
     await showNotification(
         'MesDel',
-         `Mesaj silme işlemi tamamlandı! ${totalMessageCountToDelete} mesaj başarıyla uzaya fırlatıldı!`,
+         _t('deletion_completed_push_notification_text',
+            [totalMessageCountToDelete]
+         ),
         'action_success.png');
     }
 });

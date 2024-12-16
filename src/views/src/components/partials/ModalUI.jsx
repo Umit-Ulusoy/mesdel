@@ -1,5 +1,6 @@
 import React from 'react'
 import { CloseIcon } from '@icons'
+import { _t } from '@handlers';
 
 const ModalUI = ({ show, onClose, children, title, styles, boxStyles }) => {
     if (!show) return null
@@ -14,6 +15,7 @@ const ModalUI = ({ show, onClose, children, title, styles, boxStyles }) => {
                             <button
                                 onClick={onClose}
                                 className="btn btn-square"
+                                aria-label={ _t('close_modal_button') }
                             >
                                 <CloseIcon />
                             </button>
