@@ -5,6 +5,7 @@ import Modal from "./Modal"
 import Progress from "./Progress"
 import SearchInput from "./SearchInput"
 import UserCard from "./UserCard"
+import Drawer from "./Drawer"
 
 export {
     Button,
@@ -13,5 +14,6 @@ export {
     Modal,
     Progress,
     SearchInput,
-    UserCard
+    UserCard,
+	Drawer
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import { DmList, LogoutScreen } from "@components"
-import { SearchInput, Progress, ModalUI } from "@partials"
+import { SearchInput, Progress, ModalUI, Drawer } from "@partials"
 import { getUserDms, _t } from "@handlers"
 
 
@@ -52,10 +52,21 @@ function Dashboard({token, progressValue, isComplete}){
         setFilteredDms(filteredDms.length ? filteredDms : []);
         setIsFilteringDms(inputValue.length ? true : false);
     };
-
+	function DrawerButtons(){
+		return (
+			<>
+				<li><a>Sidebar Item 1</a></li>
+				<li><a>Sidebar Item 2</a></li>
+			</>
+		)
+	}
     return (
         <section id="dashboard" className="w-full flex flex-col justify-center items-center p-2">
-            <ModalUI 
+            <Drawer
+				children={<DrawerButtons />}
+				buttonText="aç"
+			/>
+			<ModalUI 
                 show={showModal} 
                 onClose={handleCloseModal}
                 children={<LogoutScreen />}
