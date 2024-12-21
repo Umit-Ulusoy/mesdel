@@ -75,6 +75,7 @@ chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
 
     isProcessing = false;
     progress = 0;
+    totalMessageCountToDelete = 0;
     deletedMessageCount = 0;
     lastMessageId = null;
 
