@@ -27,6 +27,18 @@
     "message": "Kanallarda ara...",
     "description": "Placeholder text for the search box on the dashboard."
   },
+  "dashboard_donate_button": {
+    "message": "Bağış yap",
+    "description": "Allows you to donate to developers"
+  },
+  "dashboard_translate_button": {
+    "message": "Çeviri yap",
+    "description": "You can translate the application into your own language."
+  },
+  "dashboard_suggestion_button": {
+    "message": "Öneri",
+    "description": "Submit ideas about the application."
+  },
   "channels_loading_text": {
     "message": "Kanallar yükleniyor…",
     "description": "A message is displayed until the channels are listed."

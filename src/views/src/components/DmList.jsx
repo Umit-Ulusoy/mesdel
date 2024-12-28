@@ -27,7 +27,7 @@ function DmList({dms, isFilteringDms, filteredDms, progressValue, isComplete}) {
     const noResults = dmsToDisplay.length === 0;
    
     return (
-        <section id="dmlist" className="w-full flex flex-col gap-4">
+        <section id="dmlist" className="w-full flex flex-col gap-4 pt-4">
 			
             <div className='flex flex-col gap-3'>
                 {noResults ?

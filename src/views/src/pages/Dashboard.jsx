@@ -55,17 +55,16 @@ function Dashboard({token, progressValue, isComplete}){
 	function DrawerButtons(){
 		return (
 			<>
-				<li><a>Sidebar Item 1</a></li>
-				<li><a>Sidebar Item 2</a></li>
+				<li><a>{_t("dashboard_suggestion_button")}</a></li>
+				<li><a>{_t("dashboard_translate_button")}</a></li>
+				<li><a>{_t("dashboard_donate_button")}</a></li>
+				<li className="bg-error text-white rounded-[.5rem]" onClick={handleOpenModal}><a>{ _t('logout_button_text') }</a></li>
 			</>
 		)
 	}
     return (
         <section id="dashboard" className="w-full flex flex-col justify-center items-center p-2">
-            <Drawer
-				children={<DrawerButtons />}
-				buttonText="aç"
-			/>
+            
 			<ModalUI 
                 show={showModal} 
                 onClose={handleCloseModal}
@@ -83,10 +82,11 @@ function Dashboard({token, progressValue, isComplete}){
                 handleChange={filterDms}
                 placeholder={ _t('dashboard_search_box_placeholder') }
                 />
-                <button 
-                className="btn btn-error text-white"
-                onClick={handleOpenModal}
-                >{ _t('logout_button_text') }</button>
+                <Drawer
+                    children={<DrawerButtons />}
+                    buttonText="⚙️"
+                    arialLabel="Seçenecekler"
+			    />
             </div>
             {progressValue ? <Progress id="progress" value={progressValue} isComplete={isComplete} /> : null}
             {error && <> {error?.message} </>}
