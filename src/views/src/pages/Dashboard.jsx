@@ -85,14 +85,14 @@ function Dashboard({token, progressValue, isComplete}){
                 <Drawer
                     children={<DrawerButtons />}
                     buttonText="⚙️"
-                    arialLabel="Seçenecekler"
+                    arialLabel={_t("dashboard_options_button")}
 			    />
             </div>
             {progressValue ? <Progress id="progress" value={progressValue} isComplete={isComplete} /> : null}
             {error && <> {error?.message} </>}
             {loading
             ? <div className="text-center text-base italic text-neutral-500 mb-4 pt-8">
-				_t('channels_loading_text')
+				{_t('channels_loading_text')}
 			</div>
             : <DmList dms={dms} isFilteringDms={isFilteringDms} filteredDms={filteredDms} progressValue={progressValue} isComplete={isComplete} />}
             

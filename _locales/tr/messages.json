@@ -39,6 +39,10 @@
     "message": "Öneri",
     "description": "Submit ideas about the application."
   },
+  "dashboard_options_button": {
+    "message": "Seçenekler",
+    "description": "Options button for users."
+  },
   "channels_loading_text": {
     "message": "Kanallar yükleniyor…",
     "description": "A message is displayed until the channels are listed."
