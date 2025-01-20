@@ -73,12 +73,6 @@ chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
 
     setIconSuccess();
 
-    isProcessing = false;
-    progress = 0;
-    totalMessageCountToDelete = 0;
-    deletedMessageCount = 0;
-    lastMessageId = null;
-
     if (isPopupOpen) {
         await chrome.runtime.sendMessage({
             action: 'MESSAGE_DELETION_COMPLETE'
@@ -91,6 +85,13 @@ chrome.runtime.onMessage.addListener( async (request, sender, sendResponse) => {
          ),
         'action_success.png');
     }
+
+    isProcessing = false;
+    progress = 0;
+    totalMessageCountToDelete = 0;
+    deletedMessageCount = 0;
+    lastMessageId = null;
+
 });
 
 async function deleteMessages(channelId, authorId, messageCount) {

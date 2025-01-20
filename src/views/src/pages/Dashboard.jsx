@@ -55,10 +55,15 @@ function Dashboard({token, progressValue, isComplete}){
 	function DrawerButtons(){
 		return (
 			<>
-				<li><a>{_t("dashboard_suggestion_button")}</a></li>
-				<li><a>{_t("dashboard_translate_button")}</a></li>
-				<li><a>{_t("dashboard_donate_button")}</a></li>
-				<li className="bg-error text-white rounded-[.5rem]" onClick={handleOpenModal}><a>{ _t('logout_button_text') }</a></li>
+				<li><a role="button" >{_t("dashboard_suggestion_button")}</a></li>
+				<li><a
+                href="https://github.com/Umit-Ulusoy/discord-msdel/blob/development/CONTRIBUTING.md#translations"
+                target="_blank"
+                role="button" >{_t("dashboard_translate_button")}</a></li>
+				<li><a
+                target="_blank"
+                role="button" >{_t("dashboard_donate_button")}</a></li>
+				<li className="bg-error text-white rounded-[.5rem]" onClick={handleOpenModal}><a role="button" >{ _t('logout_button_text') }</a></li>
 			</>
 		)
 	}
