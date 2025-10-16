@@ -9,19 +9,28 @@ function App() {
   const [isComplete, setIsComplete] = useState(false)
   const navigate = useNavigate()
 
-  useEffect(()=> {
-    navigate('/')
-    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_PROGRESS) {
-              setProgressValue(request.progress)
-          }
-  
-          if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_COMPLETE) {
-              setIsComplete(true)
-          }
-      })
-      chrome.runtime.connect({ name: 'MAIN_POPUP' })
-  }, [])
+  useEffect(() => {
+	  navigate('/');
+
+	  const port = chrome.runtime.connect({ name: 'MAIN_POPUP' });
+	  
+	  const handleMessage = (request, sender, sendResponse) => {
+		if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_PROGRESS) {
+		  setProgressValue(request.progress);
+		}
+
+		if (request.action === ACTIONS.MESSAGE.MESSAGE_DELETION_COMPLETE) {
+		  setIsComplete(true);
+		}
+	  };
+
+	  chrome.runtime.onMessage.addListener(handleMessage);
+
+	  return () => {
+		port.disconnect();
+		chrome.runtime.onMessage.removeListener(handleMessage);
+	  };
+  }, []);
 
   return (
     <>
