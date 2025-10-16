@@ -11,7 +11,7 @@ function showNotification(title, message, iconPath = 'default_notification_icon.
         if (chrome.runtime.lastError) {
             console.error('Bildirim gönderilirken bir hata oluştu: ', chrome.runtime.lastError);
         } else {
-            console.log('Bildirim gönderildi, ID: ' + notificationId);
+            // console.log('Bildirim gönderildi, ID: ' + notificationId);
         }
     });
 }

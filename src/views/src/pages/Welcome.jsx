@@ -28,7 +28,6 @@ function Welcome({ token, hasToken, progressValue, isComplete }) {
 
     const handleClick = () => {
         if (isChecked) {
-            console.log("giriş")
             localStorage.setItem('openBefore', true);
             setIsOpenBefore(true)
             setIsChecked(true)
