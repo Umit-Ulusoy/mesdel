@@ -1,0 +1,133 @@
+{
+    "app_name": {
+  "message": "MesDel: Your message manager",
+  "description": "The name of the extension displayed on the Chrome Web Store, extension pages, and browser bars. It always must include the name of the extension.",
+  "example": "MesDel: Your message manager"
+},
+  "app_description": {
+  "message": "An automatic message deletion tool that lets you quickly and easily clean up messages in your Discord chats.",
+  "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
+},
+  "token_not_found": {
+    "message": "Token not found! Please open the Discord page and try again.",
+    "description": "Displayed when the token is missing."
+  },
+  "welcome_global_name": {
+    "message": "Global Name",
+    "description": "A text that prefixes the global name"
+  },
+  "welcome_username": {
+    "message": "Username",
+    "description": "A text that prefixes the username."
+  },
+  "welcome_policy_text": {
+    "message": "By clicking 'Continue', I allow the Discord MesDel app to use my token, I acknowledge that I am responsible for the security of my token, and I accept any issues that may arise during the use of the application.",
+    "description": "Message informing the user about the terms and privacy policy."
+  },
+  "welcome_continue_button": {
+    "message": "Continue",
+    "description": "Text for the 'Continue' button on the welcome screen."
+  },
+  "dashboard_title": {
+    "message": "Dashboard",
+    "description": "Title displayed on the dashboard screen."
+  },
+  "dashboard_search_box_placeholder": {
+    "message": "Search in channels...",
+    "description": "Placeholder text for the search box on the dashboard."
+  },
+  "dashboard_donate_button": {
+    "message": "Donate",
+    "description": "Allows you to donate to developers"
+  },
+  "dashboard_translate_button": {
+    "message": "Translate",
+    "description": "You can translate the application into your own language."
+  },
+  "dashboard_suggestion_button": {
+    "message": "Suggestion",
+    "description": "Submit ideas about the application."
+  },
+  "dashboard_options_button": {
+    "message": "Options",
+    "description": "Options button for users."
+  },
+  "channels_loading_text": {
+    "message": "Loading channels…",
+    "description": "A message is displayed until the channels are listed."
+  },
+  "no_channels_found": {
+    "message": "No channels found.",
+    "description": "A message is displayed when no channels found."
+  },
+  "logout_button_text": {
+    "message": "Logout",
+    "description": "Text for the 'Logout' button on the dashboard."
+  },
+  "no_user_found": {
+    "message": "User not found!",
+    "description": "A message is displayed when no user found."
+  },
+  "logout_modal_title": {
+    "message": "You are about to log out",
+    "description": "Title for the logout confirmation modal."
+  },
+  "logout_modal_text": {
+    "message": "Are you sure you want to completely log out from the extension? All your data will be deleted.",
+    "description": "Message asking for confirmation to log out."
+  },
+  "channel_photo_alt_text": {
+    "message": "Profile photo for $CHANNEL_NAME$ channel",
+    "description": "Alternative text for channel photos.",
+    "placeholders": {
+      "channel_name": {
+        "content": "$1",
+        "example": "Profile photo for Ümit channel"
+      }
+    }
+  },
+  "deletion_modal_title": {
+    "message": "Delete Message",
+    "description": "A title for message deletion modal."
+  },
+  "deletion_modal_count_text": {
+    "message": "Message Count",
+    "description": "Text for the 'Delete' button in the deletion modal."
+  },
+  "deletion_modal_delete_button": {
+    "message": "Delete",
+    "description": "Text for the 'Delete' button in the deletion modal."
+  },
+  "close_modal_button": {
+    "message": "Close Window",
+    "description": "Text for the button to close a modal."
+  },
+  "deletion_progression_completed_text": {
+    "message": "Deletion process completed.",
+    "description": "Message displayed when the deletion process is complete."
+  },
+  "deletion_progression_text": {
+    "message": "%$PERCENTAGE$",
+    "description": "Message deletion percentage is displayed progression screen.",
+    "placeholders": {
+      "percentage": {
+        "content": "$1",
+        "example": "75%"
+      }
+    }
+  },
+  "no_channel_found": {
+    "message": "Channel not found.",
+    "description": "Displayed when no channels are found during a search."
+  },
+  "deletion_completed_push_notification_text": {
+    "message": "Deletion completed. $MESSAGE_COUNT$ messages have been successfully blasted into space!",
+    "description": "Push notification displayed when deletion is successfully completed.",
+    "placeholders": {
+      "message_count": {
+        "content": "$1",
+        "example": "50 messages deleted successfully!"
+      }
+    }
+  }
+}
