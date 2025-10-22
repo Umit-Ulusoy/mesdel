@@ -2,7 +2,7 @@
     "app_name": {
   "message": "",
   "description": "The name of the extension displayed on the Chrome Web Store, extension pages, and browser bars. It always must include the extention name.",
-  "example": "MesDel: Your message manager"
+  "example": "MesDel: Your Message Manager"
 },
   "app_description": {
     "message": "",
