@@ -2,6 +2,12 @@
 
 A simple chrome extension for users to delete their messages from DM channels.
 
+## Preview
+![Login Confirm Screen](/assets/images/login_confirm_screen.png "Login Confirm Screen")
+![Dashboard Screen](/assets/images/dashboard_screen.png "Dashboard Screen")
+![Message Deletion Screen](/assets/images/message_deletion_screen.png "Message Deletion Screen")
+![Dashboard Drawer Screen](/assets/images/dashboard_drawer_screen.png "Dashboard Drawer Screen")
+
 ## Features
 
 - delete messages automatically,

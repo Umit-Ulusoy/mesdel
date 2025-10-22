@@ -9,6 +9,7 @@ const filesToCopy = [
   { name: 'manifest.json', src: rootDir },
   { name: 'content', src: path.join(rootDir, 'src') },
   { name: 'helpers', src: path.join(rootDir, 'src') },
+  { name: 'icons', src: path.join(rootDir, 'src') },
   { name: 'background', src: path.join(rootDir, 'src') }
 ];
 

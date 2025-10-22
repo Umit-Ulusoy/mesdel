@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "clean": "rimraf build discord-mesdel.zip",
-    "build:react": "vite build --config src/views/vite.config.js",
+    "build:react": "cd src/views && yarn build",
     "build:copy": "node scripts/copy-extension-files.js",
     "build:zip": "node scripts/zip-build.js",
     "build": "npm run clean && npm run build:react && npm run build:copy && npm run build:zip"
@@ -30,7 +30,7 @@
   "contributors": [
     "Burak Akın <burakyabgu6@gmail.com>"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/Umit-Ulusoy/discord-msdel/issues"
   },
