@@ -1,5 +1,5 @@
 function showNotification(title, message, iconPath = 'default_notification_icon.png') {
-    const fullIconPath = chrome.runtime.getURL(`src/icons/${iconPath}`);
+    const fullIconPath = chrome.runtime.getURL(`icons/${iconPath}`);
 
     chrome.notifications.create({
         type: 'basic',

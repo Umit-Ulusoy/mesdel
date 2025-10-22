@@ -1,4 +1,13 @@
 {
+  "app_name": {
+  "message": "MesDel: Mesaj yöneticiniz",
+  "description": "The name of the extension displayed on the Chrome Web Store, extension pages, and browser bars. It always must include the name of the extension.",
+  "example": "MesDel: Your message manager"
+},
+  "app_description": {
+    "message": "Discord sohbetlerinizdeki mesajları hızlı ve kolay bir şekilde temizlemenizi sağlayan otomatik mesaj silme aracı.",
+    "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
+  },
   "token_not_found": {
     "message": "Token bulunamadı! Lütfen Discord sayfasını açtıktan sonra tekrar deneyiniz.",
     "description": "Displayed when the token is missing."

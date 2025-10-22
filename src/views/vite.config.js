@@ -9,13 +9,14 @@ function way(name){
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    root: __dirname,
   plugins: [react()],
   server: {
     port: 3000
   },
   base: './', 
   build: {
-    outDir: 'dist',
+    outDir: '../../build/views',
   },
   resolve: {
     alias: {

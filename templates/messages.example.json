@@ -1,4 +1,13 @@
 {
+    "app_name": {
+  "message": "",
+  "description": "The name of the extension displayed on the Chrome Web Store, extension pages, and browser bars. It always must include the extention name.",
+  "example": "MesDel: Your message manager"
+},
+  "app_description": {
+    "message": "",
+    "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
+  },
   "token_not_found": {
     "message": "",
     "description": "Displayed when the token is missing."

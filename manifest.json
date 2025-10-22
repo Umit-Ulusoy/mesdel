@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Discord Msdel",
-  "description":"...",
+  "name": "__MSG_app_name__",
+  "description":"__MSG_app_description__",
   "default_locale": "tr",
   "version": "1.0.0",
   "permissions": [
@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "matches": ["https://discord.com/*"],
-      "js": ["src/content/contentScript.js"],
+      "js": ["content/contentScript.js"],
       "run_at": "document_start"
     }
   ],
@@ -25,11 +25,11 @@
   ],
   "action": {
 	"default_title":"Discord Msdel Popup",
-    "default_popup": "src/views/dist/index.html",
+    "default_popup": "views/index.html",
     "default_icon": {}
   },
   "background": {
-	"service_worker": "src/background/background.js",
+	"service_worker": "background/background.js",
   "type": "module"
   }
 }
