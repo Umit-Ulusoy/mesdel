@@ -1,0 +1,65 @@
+{
+  "name": "discord-mesdel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple Chrome extension for users to delete their messages from DM channels.",
+  "type": "module",
+  "main": "vite.config.js",
+  "scripts": {
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "clean": "rimraf build discord-mesdel.zip",
+    "build:react": "cd src/views && yarn build",
+    "build:copy": "node scripts/copy-extension-files.js",
+    "build:zip": "node scripts/zip-build.js",
+    "build": "npm run clean && npm run build:react && npm run build:copy && npm run build:zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umit-Ulusoy/discord-msdel.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "discord",
+    "messages",
+    "delete",
+    "automation",
+    "react"
+  ],
+  "author": "Ümit Ulusoy <info@umitulusoy.com>",
+  "contributors": [
+    "Burak Akın <burakyabgu6@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Umit-Ulusoy/discord-msdel/issues"
+  },
+  "homepage": "https://github.com/Umit-Ulusoy/discord-msdel#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.7",
+    "archiver": "^7.0.1",
+    "axios": "^1.7.7",
+    "fs-extra": "^11.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.2",
+    "react-router-dom": "^6.26.1",
+    "sass": "^1.78.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.13",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "postcss": "^8.4.47",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^3.4.14",
+    "vite": "^4.5.14",
+    "vite-plugin-zip-pack": "^1.2.4"
+  }
+}

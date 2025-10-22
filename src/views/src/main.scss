@@ -1,0 +1,30 @@
+@import 'sass/components/modal';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    html {
+        @apply font-sans;
+    }
+    div {
+        &#root {
+            @apply border-2 border-stone-300 rounded-sm;
+        }
+    }
+}
+
+*, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div {
+    &#root {
+        padding: 10px;
+        width: max(25rem);
+        height: min(45em);
+        overflow: auto;
+    }
+}
