@@ -5,7 +5,6 @@ import archiver from 'archiver';
 const rootDir = path.resolve();
 const buildDir = path.join(rootDir, 'build');
 const zipFileName = 'discord-mesdel.zip';
-const zipRootFolder = 'discord-mesdel';
 
 async function zipBuildFolder() {
   console.log(`--- Creating ZIP archive (${zipFileName}) ---`);
@@ -14,7 +13,9 @@ async function zipBuildFolder() {
   const archive = archiver('zip', { zlib: { level: 9 } });
 
   archive.pipe(output);
-  archive.directory(buildDir, zipRootFolder);
+
+  // 🔥 Burada ikinci parametreyi false yaparak klasörün içeriğini direkt zip’e ekliyoruz
+  archive.directory(buildDir, false);
 
   return new Promise((resolve, reject) => {
     archive.on('warning', (err) => {
