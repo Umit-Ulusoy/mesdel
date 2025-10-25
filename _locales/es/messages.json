@@ -5,7 +5,7 @@
   "example": "MesDel: Your Message Manager"
 },
   "app_description": {
-    "message": "Una breve explicación de la aplicación, mostrada en el campo de descripción de Chrome Web Store.",
+    "message": "Una herramienta de eliminación automática de mensajes que te permite limpiar rápida y fácilmente los mensajes en tus chats de Discord.",
     "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
   },
   "token_not_found": {
@@ -21,7 +21,7 @@
     "description": "A text that prefixes the username."
   },
   "welcome_policy_text": {
-    "message": "Al continuar, aceptas nuestros términos y política de privacidad.",
+    "message": "Al hacer clic en 'Continuar', permito que la aplicación Discord MesDel use mi token, reconozco que soy responsable de la seguridad de mi token y acepto cualquier problema que pueda surgir durante el uso de la aplicación.",
     "description": "Message informing the user about the terms and privacy policy."
   },
   "welcome_continue_button": {
