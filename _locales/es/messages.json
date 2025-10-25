@@ -1,0 +1,117 @@
+{
+    "app_name": {
+  "message": "MesDel: Tu Gestor de Mensajes",
+  "description": "The name of the extension displayed on the Chrome Web Store, extension pages, and browser bars. It always must include the extention name.",
+  "example": "MesDel: Your Message Manager"
+},
+  "app_description": {
+    "message": "Una breve explicación de la aplicación, mostrada en el campo de descripción de Chrome Web Store.",
+    "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
+  },
+  "token_not_found": {
+    "message": "Token no encontrado",
+    "description": "Displayed when the token is missing."
+  },
+  "welcome_global_name": {
+    "message": "Nombre global",
+    "description": "A text that prefixes the global name"
+  },
+  "welcome_username": {
+    "message": "Nombre de usuario",
+    "description": "A text that prefixes the username."
+  },
+  "welcome_policy_text": {
+    "message": "Al continuar, aceptas nuestros términos y política de privacidad.",
+    "description": "Message informing the user about the terms and privacy policy."
+  },
+  "welcome_continue_button": {
+    "message": "Continuar",
+    "description": "Text for the 'Continue' button on the welcome screen."
+  },
+  "dashboard_title": {
+    "message": "Panel de control",
+    "description": "Title displayed on the dashboard screen."
+  },
+  "dashboard_search_box_placeholder": {
+    "message": "Buscar canales...",
+    "description": "Placeholder text for the search box on the dashboard."
+  },
+  "channels_loading_text": {
+    "message": "Cargando canales...",
+    "description": "A message is displayed until the channels are listed."
+  },
+  "no_channels_found": {
+    "message": "No se encontraron canales",
+    "description": "A message is displayed when no channels found."
+  },
+  "logout_button_text": {
+    "message": "Cerrar sesión",
+    "description": "Text for the 'Logout' button on the dashboard."
+  },
+  "no_user_found": {
+    "message": "No se encontró usuario",
+    "description": "A message is displayed when no user found."
+  },
+  "logout_modal_title": {
+    "message": "Confirmar cierre de sesión",
+    "description": "Title for the logout confirmation modal."
+  },
+  "logout_modal_text": {
+    "message": "¿Estás seguro de que deseas cerrar sesión?",
+    "description": "Message asking for confirmation to log out."
+  },
+  "channel_photo_alt_text": {
+    "message": "Foto del canal $1",
+    "description": "Alternative text for channel photos.",
+    "placeholders": {
+      "channel_name": {
+        "content": "$1",
+        "example": "Channel photo for Ümit channel"
+      }
+    }
+  },
+  "deletion_modal_title": {
+    "message": "Eliminar mensajes",
+    "description": "A title for message deletion modal."
+  },
+  "deletion_modal_count_text": {
+    "message": "Se eliminarán los mensajes",
+    "description": "Text for the 'Delete' button in the deletion modal."
+  },
+  "deletion_modal_delete_button": {
+    "message": "Eliminar",
+    "description": "Text for the 'Delete' button in the deletion modal."
+  },
+  "close_modal_button": {
+    "message": "Cerrar",
+    "description": "Text for the button to close a modal."
+  },
+  "deletion_progression_completed_text": {
+    "message": "Eliminación completada",
+    "description": "Message displayed when the deletion process is complete."
+  },
+  "deletion_progression_text": {
+    "message": "Eliminando mensajes... $1",
+    "description": "Message deletion percentage is displayed progression screen.",
+    "placeholders": {
+      "percentage": {
+        "content": "$1",
+        "example": "75%"
+      }
+    }
+  },
+  "no_channel_found": {
+    "message": "No se encontró el canal",
+    "description": "Displayed when no channels are found during a search."
+  },
+  "deletion_completed_push_notification_text": {
+    "message": "¡$1 mensajes eliminados exitosamente!",
+    "description": "Push notification displayed when deletion is successfully completed.",
+    "placeholders": {
+      "message_count": {
+        "content": "$1",
+        "example": "50 messages deleted successfully!"
+      }
+    }
+  }
+}
