@@ -36,6 +36,22 @@
     "message": "",
     "description": "Placeholder text for the search box on the dashboard."
   },
+  "dashboard_donate_button": {
+    "message": "",
+    "description": "Allows you to donate to developers"
+  },
+  "dashboard_translate_button": {
+    "message": "",
+    "description": "You can translate the application into your own language."
+  },
+  "dashboard_suggestion_button": {
+    "message": "",
+    "description": "Submit ideas about the application."
+  },
+  "dashboard_options_button": {
+    "message": "",
+    "description": "Options button for users."
+  },
   "channels_loading_text": {
     "message": "",
     "description": "A message is displayed until the channels are listed."
