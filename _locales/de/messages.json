@@ -9,19 +9,19 @@
     "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
   },
   "token_not_found": {
-    "message": "Token wurde nicht gefunden.",
+    "message": "Es wurde kein Token gefunden. Bitte melden Sie sich erneut an.",
     "description": "Displayed when the token is missing."
   },
   "welcome_global_name": {
-    "message": "Willkommen bei",
+    "message": "Willkommen bei MesDel – deinem persönlichen Nachrichten-Helfer!",
     "description": "A text that prefixes the global name"
   },
   "welcome_username": {
-    "message": "Hallo",
+    "message": "Hallo, schön dich wiederzusehen",
     "description": "A text that prefixes the username."
   },
   "welcome_policy_text": {
-    "message": "Mit der Nutzung dieser Erweiterung stimmen Sie unseren Nutzungsbedingungen und Datenschutzrichtlinien zu.",
+    "message": "Durch die Nutzung dieser Erweiterung akzeptieren Sie unsere Nutzungsbedingungen und Datenschutzrichtlinie. Bitte lesen Sie diese sorgfältig.",
     "description": "Message informing the user about the terms and privacy policy."
   },
   "welcome_continue_button": {
@@ -82,7 +82,7 @@
     "placeholders": {
       "channel_name": {
         "content": "$1",
-        "example": "Channel photo for Ümit channel"
+        "example": "Kanalbild für Ümit Kanal"
       }
     }
   },
@@ -121,12 +121,12 @@
     "description": "Displayed when no channels are found during a search."
   },
   "deletion_completed_push_notification_text": {
-    "message": "$1 erfolgreich gelöscht!",
+    "message": "$1 erfolgreich gelöscht! Die Nachrichten haben jetzt Urlaub!",
     "description": "Push notification displayed when deletion is successfully completed.",
     "placeholders": {
       "message_count": {
         "content": "$1",
-        "example": "50 messages deleted successfully!"
+        "example": "50 Nachrichten"
       }
     }
   }
