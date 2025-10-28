@@ -1,0 +1,133 @@
+{
+    "app_name": {
+      "message": "MesDel: Tu Gestor de Mensajes",
+      "description": "The name of the extension displayed on the Chrome Web Store, extension pages, and browser bars. It always must include the extention name.",
+      "example": "MesDel: Your Message Manager"
+    },
+    "app_description": {
+      "message": "Una herramienta de eliminación automática de mensajes que te permite limpiar rápida y fácilmente los mensajes en tus chats de Discord.",
+      "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
+    },
+    "token_not_found": {
+      "message": "¡Token no encontrado! Abre la página de Discord y vuelve a intentarlo.",
+      "description": "Displayed when the token is missing."
+    },
+    "welcome_global_name": {
+      "message": "Nombre Global",
+      "description": "A text that prefixes the global name"
+    },
+    "welcome_username": {
+      "message": "Nombre de usuario",
+      "description": "A text that prefixes the username."
+    },
+    "welcome_policy_text": {
+      "message": "Al hacer clic en 'Continuar', permito que la aplicación Discord MesDel use mi token, reconozco que soy responsable de la seguridad de mi token y acepto cualquier problema que pueda surgir durante el uso de la aplicación.",
+      "description": "Message informing the user about the terms and privacy policy."
+    },
+    "welcome_continue_button": {
+      "message": "Continuar a MesDel",
+      "description": "Text for the 'Continue' button on the welcome screen."
+    },
+    "dashboard_title": {
+      "message": "Panel de Control",
+      "description": "Title displayed on the dashboard screen."
+    },
+    "dashboard_search_box_placeholder": {
+      "message": "Buscar canales...",
+      "description": "Placeholder text for the search box on the dashboard."
+    },
+    "dashboard_donate_button": {
+      "message": "Donar",
+      "description": "Allows you to donate to developers"
+    },
+    "dashboard_translate_button": {
+      "message": "Traducir Aplicación",
+      "description": "You can translate the application into your own language."
+    },
+    "dashboard_suggestion_button": {
+      "message": "Sugerir una Característica",
+      "description": "Submit ideas about the application."
+    },
+    "dashboard_options_button": {
+      "message": "Options",
+      "description": "Options button for users."
+    },
+    "channels_loading_text": {
+      "message": "Cargando tus canales...",
+      "description": "A message is displayed until the channels are listed."
+    },
+    "no_channels_found": {
+      "message": "No se encontraron canales.",
+      "description": "A message is displayed when no channels found."
+    },
+    "logout_button_text": {
+      "message": "Cerrar Sesión",
+      "description": "Text for the 'Logout' button on the dashboard."
+    },
+    "no_user_found": {
+      "message": "Información de usuario no encontrada.",
+      "description": "A message is displayed when no user found."
+    },
+    "logout_modal_title": {
+      "message": "Confirmar Cierre de Sesión",
+      "description": "Title for the logout confirmation modal."
+    },
+    "logout_modal_text": {
+      "message": "¿Seguro que quieres cerrar sesión completamente en la extensión? Se eliminarán todos tus datos.",
+      "description": "Message asking for confirmation to log out."
+    },
+    "channel_photo_alt_text": {
+      "message": "Foto de perfil para el canal $1",
+      "description": "Alternative text for channel photos.",
+      "placeholders": {
+        "channel_name": {
+          "content": "$1",
+          "example": "Channel photo for Ümit channel"
+        }
+      }
+    },
+    "deletion_modal_title": {
+      "message": "Eliminar mensaje",
+      "description": "A title for message deletion modal."
+    },
+    "deletion_modal_count_text": {
+      "message": "Recuento de mensajes",
+      "description": "Text for the 'Delete' button in the deletion modal."
+    },
+    "deletion_modal_delete_button": {
+      "message": "Eliminar Mensajes",
+      "description": "Text for the 'Delete' button in the deletion modal."
+    },
+    "close_modal_button": {
+      "message": "Cerrar ventana",
+      "description": "Text for the button to close a modal."
+    },
+    "deletion_progression_completed_text": {
+      "message": "¡Eliminación completada!",
+      "description": "Message displayed when the deletion process is complete."
+    },
+    "deletion_progression_text": {
+      "message": "Eliminando mensajes: $1 completado",
+      "description": "Message deletion percentage is displayed progression screen.",
+      "placeholders": {
+        "percentage": {
+          "content": "$1",
+          "example": "75%"
+        }
+      }
+    },
+    "no_channel_found": {
+      "message": "Ningún canal coincide con tu búsqueda.",
+      "description": "Displayed when no channels are found during a search."
+    },
+    "deletion_completed_push_notification_text": {
+      "message": "¡$1 mensajes eliminados con éxito!",
+      "description": "Push notification displayed when deletion is successfully completed.",
+      "placeholders": {
+        "message_count": {
+          "content": "$1",
+          "example": "50 messages deleted successfully!"
+        }
+      }
+    }
+}
