@@ -5,23 +5,23 @@
       "example": "MesDel: Your Message Manager"
     },
     "app_description": {
-      "message": "Gestiona y elimina tus mensajes sin esfuerzo en múltiples canales con MesDel.",
+      "message": "Una herramienta de eliminación automática de mensajes que te permite limpiar rápida y fácilmente los mensajes en tus chats de Discord.",
       "description": "A brief explanation of the app, displayed in the Chrome Web Store description field."
     },
     "token_not_found": {
-      "message": "Token de autenticación no encontrado. Por favor, inicia sesión de nuevo.",
+      "message": "¡Token no encontrado! Abre la página de Discord y vuelve a intentarlo.",
       "description": "Displayed when the token is missing."
     },
     "welcome_global_name": {
-      "message": "¡Bienvenido(a), $1!",
+      "message": "Nombre Global",
       "description": "A text that prefixes the global name"
     },
     "welcome_username": {
-      "message": "Has iniciado sesión como $1.",
+      "message": "Nombre de usuario",
       "description": "A text that prefixes the username."
     },
     "welcome_policy_text": {
-      "message": "Al continuar, aceptas nuestros Términos de Servicio y Política de Privacidad.",
+      "message": "Al hacer clic en 'Continuar', permito que la aplicación Discord MesDel use mi token, reconozco que soy responsable de la seguridad de mi token y acepto cualquier problema que pueda surgir durante el uso de la aplicación.",
       "description": "Message informing the user about the terms and privacy policy."
     },
     "welcome_continue_button": {
@@ -29,7 +29,7 @@
       "description": "Text for the 'Continue' button on the welcome screen."
     },
     "dashboard_title": {
-      "message": "Panel de Mensajes",
+      "message": "Panel de Control",
       "description": "Title displayed on the dashboard screen."
     },
     "dashboard_search_box_placeholder": {
@@ -37,7 +37,7 @@
       "description": "Placeholder text for the search box on the dashboard."
     },
     "dashboard_donate_button": {
-      "message": "Apóyanos",
+      "message": "Donar",
       "description": "Allows you to donate to developers"
     },
     "dashboard_translate_button": {
@@ -49,7 +49,7 @@
       "description": "Submit ideas about the application."
     },
     "dashboard_options_button": {
-      "message": "Configuración",
+      "message": "Options",
       "description": "Options button for users."
     },
     "channels_loading_text": {
@@ -73,7 +73,7 @@
       "description": "Title for the logout confirmation modal."
     },
     "logout_modal_text": {
-      "message": "¿Estás seguro(a) de que quieres cerrar sesión en MesDel?",
+      "message": "¿Seguro que quieres cerrar sesión completamente en la extensión? Se eliminarán todos tus datos.",
       "description": "Message asking for confirmation to log out."
     },
     "channel_photo_alt_text": {
@@ -87,11 +87,11 @@
       }
     },
     "deletion_modal_title": {
-      "message": "Confirmar Eliminación de Mensajes",
+      "message": "Eliminar mensaje",
       "description": "A title for message deletion modal."
     },
     "deletion_modal_count_text": {
-      "message": "¿Eliminar $1 mensajes?",
+      "message": "Recuento de mensajes",
       "description": "Text for the 'Delete' button in the deletion modal."
     },
     "deletion_modal_delete_button": {
@@ -99,7 +99,7 @@
       "description": "Text for the 'Delete' button in the deletion modal."
     },
     "close_modal_button": {
-      "message": "Cancelar",
+      "message": "Cerrar ventana",
       "description": "Text for the button to close a modal."
     },
     "deletion_progression_completed_text": {
