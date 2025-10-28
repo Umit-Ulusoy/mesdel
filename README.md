@@ -2,18 +2,24 @@
 
 A simple chrome extension for users to delete their messages from DM channels.
 
+
 ## Preview
 ![Login Confirm Screen](/assets/images/login_confirm_screen.png "Login Confirm Screen")
 ![Dashboard Screen](/assets/images/dashboard_screen.png "Dashboard Screen")
 ![Message Deletion Screen](/assets/images/message_deletion_screen.png "Message Deletion Screen")
 ![Dashboard Drawer Screen](/assets/images/dashboard_drawer_screen.png "Dashboard Drawer Screen")
 
-## Features
+## 🚀 Features
 
-- delete messages automatically,
-- easy-to-use UI,
-- quick logging in to your Discord account,
-- find DMs by filtering names.
+- ✅ Delete messages automatically
+- ✅ Easy-to-use UI
+- ✅ Quick logging in to your Discord account
+- ✅ Find DMs by filtering names
+- ❌ Deleting messages from server channels  
+- ❌ Deleting messages from group channels
+- ❌ Backing up messages before deletion
+- ❌ Filtering and deleting messages by keyword, date range, or specific time criteria
+
 
 ## Installation
 
@@ -45,7 +51,7 @@ Please make sure to follow our [Code of Conduct](./CODE_OF_CONDUCT.md) when cont
 
 ## License
 
-This project is licensed under the Apachee-2.0 License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the Apache-2.0 License - see the [LICENSE](./LICENSE) file for details.
 
 ## Support
 
